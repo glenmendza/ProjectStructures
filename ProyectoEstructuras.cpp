@@ -36,6 +36,33 @@ nodoUsuario *crearNodo(string nom,string ap1,string ap2,int cod,char tipoU, stri
     return aux;
 }
 
+//lista circular doble
+void ingresarFinalUsuarios(lista &cabeza,string nombre, string apellido1,string apellido2, int codigo, char tipoUsuario, string cuenta, string contrasenna,bool estado)
+{
+    nodoUsuario *nuevo;
+    nuevo=crearNodo(nombre,apellido1,apellido2,codigo,tipoUsuario,cuenta,contrasenna,estado);
+    
+
+    if(cabeza==NULL)
+    {
+        cabeza=nuevo;
+        cabeza->siguiente=cabeza;
+        cabeza->anterior=cabeza;
+        cout<<"Usuario "<<cuenta<<" agregado"<<endl;
+    }
+
+ 
+    else
+    {
+    nuevo->anterior=cabeza->anterior;
+		nuevo->siguiente=cabeza;
+		cabeza->anterior->siguiente=nuevo;
+		cabeza->anterior=nuevo;
+		cabeza=nuevo;
+    cout<<"Usuario "<<cuenta<<" agregado"<<endl;
+    }
+}
+
 void mostrar (lista cabeza)
 {
     lista aux;
@@ -69,64 +96,55 @@ aux=aux->siguiente;
     }
 }
 
-
-
-//lista circular doble
-void ingresarFinalUsuarios(lista &cabeza,string nombre, string apellido1,string apellido2, int codigo, char tipoUsuario, string cuenta, string contrasenna,bool estado)
+void desactivar (lista &cabeza)
 {
-    nodoUsuario *nuevo;
-    nuevo=crearNodo(nombre,apellido1,apellido2,codigo,tipoUsuario,cuenta,contrasenna,estado);
-    
-/*Los numeros del 48 al 57 son digitos en ASCII, del 65 al 90 mayusculas, del 97 al 122 minusculas. Los demas rangos son caracteres especiales
-  for(int i=0;i<contrasenna.length();i++)
-   {
-    if (((contrasenna[i]>=33 && contrasenna[i]<=37) || (contrasenna[i]>=58 && contrasenna[i]<=64)||
-    (contrasenna[i]>=91 && contrasenna[i]<=96)|| (contrasenna[i]>=123 && contrasenna[i]<=126))&&
-       (contrasenna[i]>=48 && contrasenna[i]<=57)&& 
-       (contrasenna[i]>=65 && contrasenna[i]<=90)&&      
-       (contrasenna[i]>=97 && contrasenna[i]<=122))
-        
-        {     
-          bandera=1;
-        }
-         
-    
-  } 
-  if (bandera==1)
-  {
-    cout<<"Contraseña válida"<<endl;
-  }
-  else
-  {
-    cout<<"Contraseña invalida"<<endl;
-  }
-  */
+    lista aux;
+    int codigoUsuario;
     if(cabeza==NULL)
-    {
-        cabeza=nuevo;
-        cabeza->siguiente=cabeza;
-        cabeza->anterior=cabeza;
-    }
+	cout <<"Lista vacia"<<endl;
+	else
+	{
+        aux=cabeza;
+        cout<<"Digite el codigo del usuario que desea desactivar"<<endl;
+       cin>>codigoUsuario;
+		
+		do
+		{
+			if(aux->codigo==codigoUsuario && aux==cabeza)
+			{
+				cabeza=aux->siguiente;
+				aux->siguiente->anterior =aux->anterior;
+				aux->anterior->siguiente=aux->siguiente;
+				aux->anterior=NULL;
+				aux->siguiente=NULL;
+				delete(aux);
+				aux=cabeza;
+			}
+			else
+			{
+				if(aux->codigo==codigoUsuario && aux!=cabeza)
+				{
+					aux->anterior->siguiente=aux->siguiente;
+					aux->siguiente->anterior=aux->anterior;    
+					aux->siguiente=NULL;
+					aux->anterior=NULL;      
+					delete(aux);
+					aux=cabeza;                         
+				}
 
- 
-    else
-    {
-    nuevo->siguiente=cabeza;
-    nuevo->anterior=cabeza->anterior;
-    cabeza->anterior->siguiente=nuevo;
-    cabeza->anterior=nuevo;
-    }
+			}
+			aux=aux->siguiente;
+		}
+		while(aux!=cabeza);
+}
 }
 
-
-
-
-    int main()
-{
+      int main(){
     int opcion,edad,codigo;
     string nombre,apellido1,apellido2,cuenta,contrasenna;
     char tipo;
-    bool estado;
+    string estado;
+    bool activacion;
     lista List=NULL;
     do
     {
@@ -163,8 +181,9 @@ void ingresarFinalUsuarios(lista &cabeza,string nombre, string apellido1,string 
                     cin >> contrasenna;
                      cout << "Digite el estado de la cuenta (true=activada o false=inactiva): " <<endl;
                     cin >> estado;
+                    if(estado==)
                     ingresarFinalUsuarios(List,nombre,apellido1,apellido2,codigo,tipo,cuenta,contrasenna,estado);
-                    cout << "Datos almacenados" <<endl;
+                    
                     
             break;
             case 2: 
@@ -196,4 +215,3 @@ void ingresarFinalUsuarios(lista &cabeza,string nombre, string apellido1,string 
     while(opcion!=10);
     cout << "Fin del sistema" <<endl;
     }
-    
