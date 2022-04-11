@@ -180,9 +180,10 @@ void desactivar (lista &cabeza)
                      cout << "Digite la contrasenna: " <<endl;
                     cin >> contrasenna;
                      cout << "Digite el estado de la cuenta (true=activada o false=inactiva): " <<endl;
-                    cin >> estado;
-                    if(estado==)
-                    ingresarFinalUsuarios(List,nombre,apellido1,apellido2,codigo,tipo,cuenta,contrasenna,estado);
+                    cin >> activacion;
+                    
+                    ingresarFinalUsuarios(List,nombre,apellido1,apellido2,codigo,tipo,cuenta,contrasenna,activacion);
+                    
                     
                     
             break;
