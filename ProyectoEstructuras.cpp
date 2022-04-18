@@ -44,9 +44,17 @@ struct nodoDoctor
     nodoDoctor *siguiente;
     nodoDoctor *anterior;
 };
+struct nodoCita{
+	string sintomas;
+	string fecha;
+    string hora;
+    nodoCita *siguiente;
+    nodoCita *anterior;
+};
 typedef struct nodoUsuario *lista;
 typedef struct nodoPaciente *listaP;
 typedef struct nodoDoctor *listaD;
+typedef struct nodoCita *listaC;
 
 nodoUsuario *crearNodo(string nom,string ap1,string ap2,int cod,char tipoU, string cuen,string con, string es)
 {
@@ -444,7 +452,7 @@ aux=aux->siguiente;
     }
 }
 
-void eliminarDoctor(listaD &cabeza,int codigo)
+void eliminarDoctor(listaD &cabeza,int codigo = 0)
 {
 	listaD aux;
 	
@@ -783,12 +791,12 @@ void desactivar (lista &cabeza,int codigoUsuario)
 
 	
     int main(){
-    int opcion,edad,codigo,codigoUsuario;
+    int opcion = 0,edad = 0,codigo = 0,codigoUsuario = 0;
     string nombre,apellido1,apellido2,cuenta,contrasenna;
     string sintomas,fechaIngreso;
     string especialidad;
-    int cedula,telefono;
-    int codigoD;
+    int cedula = 0,telefono = 0;
+    int codigoD = 0;
     char tipo;
     string estado;
     string activacion;
@@ -798,7 +806,7 @@ void desactivar (lista &cabeza,int codigoUsuario)
 	//string input = " aB4$cfgty";
     //printStrongNess(input);
     //return 0;
-  /*
+
     do
     {
         
@@ -808,7 +816,7 @@ void desactivar (lista &cabeza,int codigoUsuario)
         cout << "3. Modificar paciente" <<endl;
         cout << "4. Eliminar paciente" <<endl;
         cout << "5. Asignar una cita medica" <<endl;
-        cout << "6. Modificar una cita medica" <<endl;
+        cout << "6. Modificar una cita medica (Insertar doctor)" <<endl;
         cout << "7. Eliminar una cita medica" <<endl;
         cout << "8. Salir" <<endl;
         cout << "La opcion que desea es: ";
@@ -836,29 +844,47 @@ void desactivar (lista &cabeza,int codigoUsuario)
                             
             break;
             case 2: 
-                  mostrarPaciente(ListP);
+                  mostrarPaciente(ListP,ListD);
             break;
             case 3: 
-                     cout<<"por hacer"<<endl;
+                     
+                    cout<<"Digite el numero de cedula del paciente que desea modificar"<<endl;
+                    cin>>cedula;
+                    modificarPaciente(ListP,cedula);
             break;
             case 4:
-                    cout<<"por hacer"<<endl;
+                    cout<<"Digite la cedula del paciente que desea eliminar"<<endl;
+                    cin>>cedula;
+					eliminarPaciente(ListP,cedula);
+					mostrarPaciente(ListP,ListD);
+					 system("Pause");
             break;
             case 5:
                     cout<<"por hacer"<<endl;
             break;
             case 6:
-                     cout<<"por hacer"<<endl;
+                    cout<<"por hacer"<<endl;
+                    cout <<"Digite el nombre del doctor:"<<endl;
+                    cin >> nombre;
+                    cout << "Digite el primer apellido del doctor: " <<endl;
+                    cin >> apellido1;
+                    cout << "Digite el segundo apellido del doctor: " <<endl;
+                    cin >> apellido2;
+                    cout << "Digite la especialidad del doctor: " <<endl;
+                    cin >> especialidad;
+                    codigoD = rand()%500;
+                    
+                    ingresarFinalDoctor(ListD,nombre,apellido1,apellido2,especialidad,codigoD);
             break;
             case 7:
-                     cout<<"por hacer"<<endl;
+                	cout<<"por hacer"<<endl;
             break;
 
         }
     }
     while(opcion!=8);
-*/
 
+/*
     do
     {
         
@@ -934,13 +960,14 @@ void desactivar (lista &cabeza,int codigoUsuario)
                    cout<<"Digite el codigo del doctor que desea eliminar"<<endl;
                    cin>>codigoD;
 				    eliminarDoctor(ListD,codigoD);
-				    	mostrarDoctor(ListD);
+				    //	mostrarDoctor(ListD);
 				    system("Pause");
             break;
             case 6:
                      cout<<"Digite el codigo del doctor que desea modificar"<<endl;
                      cin>>codigoD;
                      modificarDoctor(ListD,codigoD);
+                     system("Pause");
             break;
             case 7:
             		mostrarDoctor(ListD);
@@ -985,6 +1012,6 @@ void desactivar (lista &cabeza,int codigoUsuario)
         }
     }
     while(opcion!=12);
-    
+    */
     cout << "Fin del sistema" <<endl;
     }
