@@ -17,7 +17,7 @@ struct nodoUsuario
     char tipoUsuario;
     string cuenta;
     string contrasenna;
-    bool estado;
+    string estado;
     nodoUsuario *siguiente;
     nodoUsuario *anterior;
 };
@@ -48,7 +48,7 @@ typedef struct nodoUsuario *lista;
 typedef struct nodoPaciente *listaP;
 typedef struct nodoDoctor *listaD;
 
-nodoUsuario *crearNodo(string nom,string ap1,string ap2,int cod,char tipoU, string cuen,string con, bool es)
+nodoUsuario *crearNodo(string nom,string ap1,string ap2,int cod,char tipoU, string cuen,string con, string es)
 {
     nodoUsuario *aux = new (struct nodoUsuario);
     aux->nombre=nom;
@@ -92,7 +92,7 @@ nodoDoctor *crearNodo(string nom,string ap1,string ap2,string espec,int codD)
 }
 
 //lista circular doble
-void ingresarFinalUsuarios(lista &cabeza,string nombre, string apellido1,string apellido2, int codigo, char tipoUsuario, string cuenta, string contrasenna,bool estado)
+void ingresarFinalUsuarios(lista &cabeza,string nombre, string apellido1,string apellido2, int codigo, char tipoUsuario, string cuenta, string contrasenna,string estado)
 {
     nodoUsuario *nuevo;
     nuevo=crearNodo(nombre,apellido1,apellido2,codigo,tipoUsuario,cuenta,contrasenna,estado);
@@ -103,7 +103,7 @@ void ingresarFinalUsuarios(lista &cabeza,string nombre, string apellido1,string 
         cabeza=nuevo;
         cabeza->siguiente=cabeza;
         cabeza->anterior=cabeza;
-        cout<<"Usuario "<<cuenta<<" agregado"<<endl;
+        cout<<"Usuario "<<codigo<<" agregado"<<endl;
     }
 
  
@@ -114,7 +114,7 @@ void ingresarFinalUsuarios(lista &cabeza,string nombre, string apellido1,string 
 		cabeza->anterior->siguiente=nuevo;
 		cabeza->anterior=nuevo;
 		cabeza=nuevo;
-    cout<<"Usuario "<<cuenta<<" agregado"<<endl;
+    cout<<"Usuario "<<codigo<<" agregado"<<endl;
     }
 }
 
@@ -183,21 +183,15 @@ void mostrar (lista cabeza)
         do
         {
             cout<<"Nombre: "<<aux->nombre<<endl;
-            cout<<"Primer apelldio: "<<aux->apellido1<<endl;
+            cout<<"Primer apellido: "<<aux->apellido1<<endl;
             cout<<"Segundo apellido: "<<aux->apellido2<<endl;
             cout<<"Codigo: "<<aux->codigo<<endl;
             cout<<"Tipo de usuario: "<<aux->tipoUsuario<<endl;
-            cout<<"Contraseña: "<<aux->contrasenna<<endl;
-
-            if (aux->estado==true)
-            {
-            cout<<"Cuenta activa"<<endl;
-            }else
-            {
-                cout<<"Cuenta inactiva"<<endl;
-            }
+            cout<<"Contrasenna: "<<aux->contrasenna<<endl;
+            cout<<"Estado de la cuenta: "<<aux->estado<<endl;
+            
             cout<<"=========================="<<endl;
-aux=aux->siguiente;
+           aux=aux->siguiente;
 
         } 
         while (aux!=cabeza);
@@ -215,7 +209,7 @@ void mostrarPaciente (listaP cabeza)
         do
         {
             cout<<"Nombre: "<<aux->nombre<<endl;
-            cout<<"Primer apelldio: "<<aux->apellido1<<endl;
+            cout<<"Primer apellido: "<<aux->apellido1<<endl;
             cout<<"Segundo apellido: "<<aux->apellido2<<endl;
             cout<<"Cedula: "<<aux->cedula<<endl;
             cout<<"Telefono: "<<aux->telefono<<endl;
@@ -230,6 +224,8 @@ aux=aux->siguiente;
     }
 }
 
+
+//DOCTORES
 void mostrarDoctor (listaD cabeza)
 {
     listaD aux;
@@ -255,17 +251,63 @@ aux=aux->siguiente;
     }
 }
 
-void desactivar (lista &cabeza)
+void eliminarDoctor(listaD &cabeza,int codigo)
+{
+	listaD aux;
+	
+	if(cabeza==NULL)
+	cout <<"Lista vacia"<<endl;
+	else
+	{
+		aux=cabeza;
+		do
+		{
+			if(aux->codigoD==codigo && aux==cabeza)
+			{
+				cabeza=aux->siguiente;
+				aux->siguiente->anterior =aux->anterior;
+				aux->anterior->siguiente=aux->siguiente;
+				aux->anterior=NULL;
+				aux->siguiente=NULL;			
+				delete(aux);		
+					cout<<"Doctor"<<codigo<<" eliminado"<<endl;		
+				aux=cabeza;
+			}
+			else
+			{
+				if(aux->codigoD==codigo && aux!=cabeza)
+				{
+					aux->anterior->siguiente=aux->siguiente;
+					aux->siguiente->anterior=aux->anterior;    
+					aux->siguiente=NULL;
+					aux->anterior=NULL;      					
+					delete(aux);
+					cout<<"Doctor"<<codigo<<" eliminado"<<endl;
+					aux=cabeza;                         
+				}
+
+			}
+			aux=aux->siguiente;
+		}
+		while(aux!=cabeza);
+	}	
+}
+
+void modificarDoctor(listaD &cabeza,int codigo)
+{
+	
+}
+
+void desactivar (lista &cabeza,int codigoUsuario)
 {
     lista aux;
-    int codigoUsuario;
+    
     if(cabeza==NULL)
 	cout <<"Lista vacia"<<endl;
 	else
 	{
         aux=cabeza;
-        cout<<"Digite el codigo del usuario que desea desactivar"<<endl;
-       cin>>codigoUsuario;
+        
 		
 		do
 		{
@@ -333,7 +375,7 @@ void desactivar (lista &cabeza)
 
 	
     int main(){
-    int opcion,edad,codigo;
+    int opcion,edad,codigo,codigoUsuario;
     string nombre,apellido1,apellido2,cuenta,contrasenna;
     string sintomas,fechaIngreso;
     string especialidad;
@@ -341,7 +383,7 @@ void desactivar (lista &cabeza)
     int codigoD;
     char tipo;
     string estado;
-    bool activacion;
+    string activacion;
     lista List=NULL;
     listaP ListP=NULL;
     listaD ListD=NULL;
@@ -408,6 +450,7 @@ void desactivar (lista &cabeza)
     }
     while(opcion!=8);
 */
+
     do
     {
         
@@ -446,19 +489,22 @@ void desactivar (lista &cabeza)
                     cin >> cuenta;
                      cout << "Digite la contrasenna: " <<endl;
                     cin >> contrasenna;
-                     cout << "Digite el estado de la cuenta (true=activada o false=inactiva): " <<endl;
+                     cout << "Digite el estado de la cuenta, activa o inactiva: " <<endl;
                     cin >> activacion;
                     
                     ingresarFinalUsuarios(List,nombre,apellido1,apellido2,codigo,tipo,cuenta,contrasenna,activacion);
                     
                     
-                    
+                    system("Pause");
             break;
             case 2: 
                   mostrar(List);
+                  system("Pause");
             break;
             case 3: 
-                     cout<<"por hacer"<<endl;
+            cout<<"Digite el codigo del usuario que desea desactivar"<<endl;
+       cin>>codigoUsuario;
+                     desactivar(List,codigoUsuario);
             break;
             case 4:
                     cout <<"Digite el nombre del doctor:"<<endl;
@@ -475,13 +521,17 @@ void desactivar (lista &cabeza)
 
             break;
             case 5:
-                    cout<<"por hacer"<<endl;
+                   cout<<"Digite el codigo del doctor que desea eliminar"<<endl;
+                   cin>>codigoD;
+				    eliminarDoctor(ListD,codigoD);
+				    system("Pause");
             break;
             case 6:
                      cout<<"por hacer"<<endl;
             break;
             case 7:
             		mostrarDoctor(ListD);
+            		system("Pause");
                     //cout<<"por hacer"<<endl;
             break;
              case 8:
