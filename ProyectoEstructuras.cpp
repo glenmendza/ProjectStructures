@@ -333,8 +333,8 @@ void modificarDoctor(listaD &cabeza,int codigo)
             cout<<"------------------------"<<endl;
             cout<<" "<<endl;
              
-             cout<<"Desea guardar los cambios?\n 1)SI \n 2)NO"<<endl;
-             cin>>opcion;
+            cout<<"Desea guardar los cambios?\n 1)SI \n 2)NO"<<endl;
+            cin>>opcion;
              
             if(opcion==1)  {
 				   		
@@ -413,12 +413,109 @@ void modificarDoctor(listaD &cabeza,int codigo)
 				}
 
 			}            
-aux=aux->siguiente;
-
+			aux=aux->siguiente;
         }
 		while(aux!=cabeza); 
     }	
 }
+
+void modificarEstado(lista &cabeza,int codigoUsuario)
+{
+	string estadon;
+	int opcion;
+	lista aux;
+	
+    if (cabeza==NULL)
+    cout<<"Lista vacia"<<endl;
+    else
+    {
+        aux=cabeza;
+        do
+        {
+        	if(aux->codigo==codigoUsuario && aux==cabeza)
+			{
+			cout<<"Codigo del usuario: "<<aux->codigo<<endl;
+			cout<<"Nombre del usuario: "<<aux->nombre<<" "<<aux->apellido1<<endl;
+			cout<<"Estado actual: "<<aux->estado<<endl;
+			
+			cout<<" "<<endl;
+            cout<<"------------------------"<<endl;
+            cout<<"Nuevo estado:\n(activo o inactivo) "<<endl;
+            cin>>estadon;         
+            cout<<"------------------------"<<endl;
+            cout<<" "<<endl;
+             
+            cout<<"Desea guardar los cambios?\n 1)SI \n 2)NO"<<endl;
+            cin>>opcion;
+			
+            if(opcion==1)	{
+				   		
+			aux->estado=estadon;
+
+            cout<<" "<<endl;
+            cout<<"------------------------"<<endl;
+            cout<<"Nuevo estado modificado: "<<estadon<<endl;
+            cout<<"------------------------"<<endl;
+            cout<<" "<<endl;
+		    }
+		    else if(opcion==2)
+		    	{
+		    	cout<<"Los cambios no fueron guardados"<<endl;
+				}
+				
+			else{
+			cout<<"Opcion inválida"<<endl;	
+				}		
+			}
+			else
+			{
+			if(aux->codigo==codigoUsuario && aux!=cabeza)
+				{
+					
+			cout<<" "<<endl;
+			cout<<"Codigo del usuario: "<<aux->codigo<<endl;
+			cout<<"Nombre del usuario: "<<aux->nombre<<" "<<aux->apellido1<<endl;
+			cout<<"Estado actual: "<<aux->estado<<endl;
+			cout<<" "<<endl;
+			
+			cout<<" "<<endl;
+            cout<<"------------------------"<<endl;
+            cout<<"Nuevo estado:\n(activo o inactivo) "<<endl;
+            cin>>estadon;         
+            cout<<"------------------------"<<endl;
+            cout<<" "<<endl;
+             
+             cout<<"Desea guardar los cambios?\n 1)SI \n 2)NO"<<endl;
+             cin>>opcion;
+             
+            if(opcion==1)  {
+			     
+		
+			aux->estado=estadon;
+            
+            cout<<" "<<endl;
+            cout<<"------------------------"<<endl;
+            cout<<"Nuevo estado modificado: "<<estadon<<endl;
+            cout<<"------------------------"<<endl;
+            cout<<" "<<endl;
+            
+		    }
+		    else if(opcion==2)
+		    {
+		    	cout<<"Los cambios no fueron guardados"<<endl;
+			}
+			else{
+			cout<<"Opcion inválida"<<endl;	
+			}	                     
+				}
+
+			}            
+			aux=aux->siguiente;
+        }
+		while(aux!=cabeza); 
+    }	
+}
+
 
 void desactivar (lista &cabeza,int codigoUsuario)
 {
@@ -436,7 +533,7 @@ void desactivar (lista &cabeza,int codigoUsuario)
 			if(aux->codigo==codigoUsuario && aux==cabeza)
 			{
 				cabeza=aux->siguiente;
-				aux->siguiente->anterior =aux->anterior;
+				aux->siguiente->anterior=aux->anterior;
 				aux->anterior->siguiente=aux->siguiente;
 				aux->anterior=NULL;
 				aux->siguiente=NULL;
@@ -624,9 +721,10 @@ void desactivar (lista &cabeza,int codigoUsuario)
                   system("Pause");
             break;
             case 3: 
-            cout<<"Digite el codigo del usuario que desea desactivar"<<endl;
-       cin>>codigoUsuario;
-                     desactivar(List,codigoUsuario);
+            cout<<"Digite el codigo del usuario que desea activar o desactivar"<<endl;
+       		cin>>codigoUsuario;
+       		modificarEstado(List,codigoUsuario);
+                    //desactivar(List,codigoUsuario);
             break;
             case 4:
                     cout <<"Digite el nombre del doctor:"<<endl;
