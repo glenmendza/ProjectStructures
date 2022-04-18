@@ -158,6 +158,7 @@ void ingresarFinalDoctor(listaD &cabeza,string nombre, string apellido1,string a
         cabeza->siguiente=cabeza;
         cabeza->anterior=cabeza;
         cout<<"Doctor "<<codigoD<<" agregado"<<endl;
+        system("Pause");
     }
 
  
@@ -168,7 +169,8 @@ void ingresarFinalDoctor(listaD &cabeza,string nombre, string apellido1,string a
 		cabeza->anterior->siguiente=nuevo;
 		cabeza->anterior=nuevo;
 		cabeza=nuevo;
-    cout<<"Doctor "<<codigoD<<" agregado"<<endl;
+    	cout<<"Doctor "<<codigoD<<" agregado"<<endl;
+    	system("Pause");
     }
 }
 
@@ -182,6 +184,7 @@ void mostrar (lista cabeza)
         aux=cabeza;
         do
         {
+        	cout<<"------------------------"<<endl;
             cout<<"Nombre: "<<aux->nombre<<endl;
             cout<<"Primer apellido: "<<aux->apellido1<<endl;
             cout<<"Segundo apellido: "<<aux->apellido2<<endl;
@@ -189,8 +192,7 @@ void mostrar (lista cabeza)
             cout<<"Tipo de usuario: "<<aux->tipoUsuario<<endl;
             cout<<"Contrasenna: "<<aux->contrasenna<<endl;
             cout<<"Estado de la cuenta: "<<aux->estado<<endl;
-            
-            cout<<"=========================="<<endl;
+            cout<<"------------------------"<<endl;
            aux=aux->siguiente;
 
         } 
@@ -208,6 +210,7 @@ void mostrarPaciente (listaP cabeza)
         aux=cabeza;
         do
         {
+        	cout<<"------------------------"<<endl;
             cout<<"Nombre: "<<aux->nombre<<endl;
             cout<<"Primer apellido: "<<aux->apellido1<<endl;
             cout<<"Segundo apellido: "<<aux->apellido2<<endl;
@@ -215,7 +218,7 @@ void mostrarPaciente (listaP cabeza)
             cout<<"Telefono: "<<aux->telefono<<endl;
             cout<<"Sintomas: "<<aux->sintomas<<endl;
             cout<<"Fecha de ingreso: "<<aux->fechaIngreso<<endl;
-            cout<<"=========================="<<endl;
+            cout<<"------------------------"<<endl;
 aux=aux->siguiente;
 
         } 
@@ -236,12 +239,13 @@ void mostrarDoctor (listaD cabeza)
         aux=cabeza;
         do
         {
+        	cout<<"------------------------"<<endl;
             cout<<"Nombre: "<<aux->nombre<<endl;
             cout<<"Primer apelldio: "<<aux->apellido1<<endl;
             cout<<"Segundo apellido: "<<aux->apellido2<<endl;
             cout<<"Especialidad: "<<aux->especialidad<<endl;
             cout<<"Codigo: "<<aux->codigoD<<endl;
-            cout<<"=========================="<<endl;
+            cout<<"------------------------"<<endl;
             
 aux=aux->siguiente;
 
@@ -293,12 +297,14 @@ void eliminarDoctor(listaD &cabeza,int codigo)
 	}	
 }
 
+
 void modificarDoctor(listaD &cabeza,int codigo)
 {
 	string nombren,apellido1n,apellido2n,especialidadn;
 	bool confirmacion=false;
 	int opcion;
-listaD aux;
+	listaD aux;
+	
     if (cabeza==NULL)
     cout<<"Lista vacia"<<endl;
     else
@@ -314,6 +320,7 @@ listaD aux;
             cout<<"Especialidad actual: "<<aux->especialidad<<endl;
             cout<<"Codigo: "<<aux->codigoD<<endl;
             
+            cout<<" "<<endl;
             cout<<"------------------------"<<endl;
             cout<<"Nuevo nombre: "<<endl;
             cin>>nombren;         
@@ -323,14 +330,28 @@ listaD aux;
             cin>>apellido2n;
             cout<<"Nueva especialidad: "<<endl;
             cin>>especialidadn;
+            cout<<"------------------------"<<endl;
+            cout<<" "<<endl;
              
              cout<<"Desea guardar los cambios?\n 1)SI \n 2)NO"<<endl;
              cin>>opcion;
-            if(opcion==1)  {			   		
-			aux->nombre==nombren;
-            aux->apellido1==apellido1n;
-            aux->apellido2==apellido2n;
-            aux->especialidad==especialidadn;
+             
+            if(opcion==1)  {
+				   		
+			aux->nombre=nombren;
+            aux->apellido1=apellido1n;
+            aux->apellido2=apellido2n;
+            aux->especialidad=especialidadn;
+            
+            
+            cout<<" "<<endl;
+            cout<<"------------------------"<<endl;
+            cout<<"Nuevo nombre modificado: "<<nombren<<endl;
+            cout<<"Nuevo primer apellido modificado: "<<apellido1n<<endl;
+            cout<<"Nuevo segundo apellido modificado: "<<apellido2n<<endl;
+            cout<<"Nuevo especialidad modificado: "<<especialidadn<<endl;
+            cout<<"------------------------"<<endl;
+            cout<<" "<<endl;
 		    }
 		    else if(opcion==2)
 		    {
@@ -344,7 +365,7 @@ listaD aux;
 			{
 				if(aux->codigoD==codigo && aux!=cabeza)
 				{
-				cout<<"Nombre Actual: "<<aux->nombre<<endl;
+			cout<<"Nombre Actual: "<<aux->nombre<<endl;
             cout<<"Primer apellido actual: "<<aux->apellido1<<endl;
             cout<<"Segundo apellido actual: "<<aux->apellido2<<endl;
             cout<<"Especialidad actual: "<<aux->especialidad<<endl;
@@ -366,16 +387,21 @@ listaD aux;
             if(opcion==1)  {
 			     
 		
-			aux->nombre==nombren;
-            aux->apellido1==apellido1n;
-            aux->apellido2==apellido2n;
-            aux->especialidad==especialidadn;
+			aux->nombre=nombren;
+            aux->apellido1=apellido1n;
+            aux->apellido2=apellido2n;
+            aux->especialidad=especialidadn;
             
             
-            cout<<"prueba"<<nombren<<endl;
-            cout<<apellido1n<<endl;
-            cout<<apellido2n<<endl;
-            cout<<especialidadn<<endl;
+            cout<<" "<<endl;
+            cout<<"------------------------"<<endl;
+            cout<<"Nuevo nombre modificado: "<<nombren<<endl;
+            cout<<"Nuevo primer apellido modificado: "<<apellido1n<<endl;
+            cout<<"Nuevo segundo apellido modificado: "<<apellido2n<<endl;
+            cout<<"Nuevo especialidad modificado: "<<especialidadn<<endl;
+            cout<<"------------------------"<<endl;
+            cout<<" "<<endl;
+            
 		    }
 		    else if(opcion==2)
 		    {
@@ -389,9 +415,8 @@ listaD aux;
 			}            
 aux=aux->siguiente;
 
-        } 
-        while (aux!=cabeza);
-        
+        }
+		while(aux!=cabeza); 
     }	
 }
 
