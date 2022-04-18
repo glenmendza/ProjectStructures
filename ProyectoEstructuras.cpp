@@ -295,7 +295,104 @@ void eliminarDoctor(listaD &cabeza,int codigo)
 
 void modificarDoctor(listaD &cabeza,int codigo)
 {
-	
+	string nombren,apellido1n,apellido2n,especialidadn;
+	bool confirmacion=false;
+	int opcion;
+listaD aux;
+    if (cabeza==NULL)
+    cout<<"Lista vacia"<<endl;
+    else
+    {
+        aux=cabeza;
+        do
+        {
+        	if(aux->codigoD==codigo && aux==cabeza)
+			{
+		    cout<<"Nombre Actual: "<<aux->nombre<<endl;
+            cout<<"Primer apellido actual: "<<aux->apellido1<<endl;
+            cout<<"Segundo apellido actual: "<<aux->apellido2<<endl;
+            cout<<"Especialidad actual: "<<aux->especialidad<<endl;
+            cout<<"Codigo: "<<aux->codigoD<<endl;
+            
+            cout<<"------------------------"<<endl;
+            cout<<"Nuevo nombre: "<<endl;
+            cin>>nombren;         
+            cout<<"Nuevo primer apellido: "<<endl;
+            cin>>apellido1n;
+            cout<<"Nuevo segundo apellido: "<<endl;
+            cin>>apellido2n;
+            cout<<"Nueva especialidad: "<<endl;
+            cin>>especialidadn;
+             
+             cout<<"Desea guardar los cambios?\n 1)SI \n 2)NO"<<endl;
+             cin>>opcion;
+            if(opcion==1)  {			   		
+			aux->nombre==nombren;
+            aux->apellido1==apellido1n;
+            aux->apellido2==apellido2n;
+            aux->especialidad==especialidadn;
+		    }
+		    else if(opcion==2)
+		    {
+		    	cout<<"Los datos no fueron guardados"<<endl;
+			}
+			else{
+			cout<<"Opcion invalida"<<endl;	
+			}		
+			}
+			else
+			{
+				if(aux->codigoD==codigo && aux!=cabeza)
+				{
+				cout<<"Nombre Actual: "<<aux->nombre<<endl;
+            cout<<"Primer apellido actual: "<<aux->apellido1<<endl;
+            cout<<"Segundo apellido actual: "<<aux->apellido2<<endl;
+            cout<<"Especialidad actual: "<<aux->especialidad<<endl;
+            cout<<"Codigo: "<<aux->codigoD<<endl;
+            
+            cout<<"------------------------"<<endl;
+            cout<<"Nuevo nombre: "<<endl;
+            cin>>nombren;         
+            cout<<"Nuevo primer apellido: "<<endl;
+            cin>>apellido1n;
+            cout<<"Nuevo segundo apellido: "<<endl;
+            cin>>apellido2n;
+            cout<<"Nueva especialidad: "<<endl;
+            cin>>especialidadn;
+             
+             cout<<"Desea guardar los cambios?\n 1)SI \n 2)NO"<<endl;
+             cin>>opcion;
+             
+            if(opcion==1)  {
+			     
+		
+			aux->nombre==nombren;
+            aux->apellido1==apellido1n;
+            aux->apellido2==apellido2n;
+            aux->especialidad==especialidadn;
+            
+            
+            cout<<"prueba"<<nombren<<endl;
+            cout<<apellido1n<<endl;
+            cout<<apellido2n<<endl;
+            cout<<especialidadn<<endl;
+		    }
+		    else if(opcion==2)
+		    {
+		    	cout<<"Los datos no fueron guardados"<<endl;
+			}
+			else{
+			cout<<"Opcion invalida"<<endl;	
+			}	                     
+				}
+
+			}            
+aux=aux->siguiente;
+
+        } 
+        while (aux!=cabeza);
+        
+    }	
 }
 
 void desactivar (lista &cabeza,int codigoUsuario)
@@ -527,7 +624,9 @@ void desactivar (lista &cabeza,int codigoUsuario)
 				    system("Pause");
             break;
             case 6:
-                     cout<<"por hacer"<<endl;
+                     cout<<"Digite el codigo del doctor que desea modificar"<<endl;
+                     cin>>codigoD;
+                     modificarDoctor(ListD,codigoD);
             break;
             case 7:
             		mostrarDoctor(ListD);
