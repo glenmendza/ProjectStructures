@@ -55,12 +55,14 @@ struct nodoCita{
 	//int codigoDoctorCita;
 	//int cedulaPacienteCita;
 	int idCita;
-	string sintomas1;
+	int sintomas1;
 	int anno;
 	int mes;
 	int dia;
     int hora;
     int minutos;
+    int doc1;
+    int pac1;
     nodoCita *siguiente;
     nodoCita *anterior;
     nodoDoctor *doc;
@@ -111,7 +113,7 @@ nodoDoctor *crearNodo(string nom,string ap1,string ap2,string espec,int codD)
     return aux;
 }
 
-nodoCita *crearNodo(int id,string sin1,int an,int ms,int d,int hor,int min)
+nodoCita *crearNodo(int id,int sin1,int an,int ms,int d,int hor,int min,int doc,int pac)
 {
     nodoCita *aux = new (struct nodoCita);
     aux->idCita=id;
@@ -121,6 +123,8 @@ nodoCita *crearNodo(int id,string sin1,int an,int ms,int d,int hor,int min)
     aux->dia=d;
     aux->hora=hor;
     aux->minutos=min;
+    aux->doc1=doc;
+    aux->pac1=pac;
     aux->siguiente=NULL;
     aux->anterior=NULL;
     aux->doc=NULL;
@@ -846,6 +850,8 @@ void mostrarCitas (listaC cabeza)
             cout<<"Dia: "<<aux->dia<<endl;
             cout<<"Hora: "<<aux->hora<<endl;
             cout<<"Minuto: "<<aux->minutos<<endl;
+            cout<<"Doc: "<<aux->doc1<<endl;
+            cout<<"Pac: "<<aux->pac1<<endl;
             cout<<"------------------------"<<endl;
         	contador=contador+1;
 			aux=aux->siguiente;
@@ -857,17 +863,18 @@ void mostrarCitas (listaC cabeza)
     		cout<<"\n\tCitas en total: "<<contador<<"\n\n";
 }
 
-void asignarCita(listaC &cabeza,int idCita, string sintomas1,int anno,int mes,int dia, int hora,int minutos)
+void asignarCita1(listaC &cabeza,int idCita, int sintomas1,int anno,int mes,int dia, int hora,int minutos,int doc1, int pac1)
 {
-	nodoCita *nuevo;
-    nuevo=crearNodo(idCita,sintomas1,anno,mes,dia,hora,minutos);
+    nodoCita *nuevo;
+    nuevo=crearNodo(idCita,sintomas1,anno,mes,dia,hora,minutos,doc1,pac1);
+    
 
     if(cabeza==NULL)
     {
         cabeza=nuevo;
         cabeza->siguiente=cabeza;
         cabeza->anterior=cabeza;
-        cout<<"\n\tCita "<<"aa"<<" agregado"<<endl;
+        cout<<"\n\tDoctor AA agregado"<<endl;
     }
 
  
@@ -878,17 +885,15 @@ void asignarCita(listaC &cabeza,int idCita, string sintomas1,int anno,int mes,in
 		cabeza->anterior->siguiente=nuevo;
 		cabeza->anterior=nuevo;
 		cabeza=nuevo;
-        cout<<"\n\tCita "<<"aa"<<" agregado"<<endl;
-    };
-	
-    
-    
+    	cout<<"\n\tDoctor AA agregado"<<endl;
+    }
 }
+
 	
     int main(){
     	
-	string sintomas1;
-	int mes;
+	int sintomas1,mes,anno,dia,hora,minutos,doc,pac,idCita;
+	int inputsintomas1,inputmes,inputanno,inputdia,inputhora,inputminutos,inputdoc,inputpac,inputidCita;
 		
     int opcion = 0,edad = 0,codigo = 0,codigoUsuario = 0;
     string nombre,apellido1,apellido2,cuenta,contrasenna;
@@ -911,7 +916,7 @@ void asignarCita(listaC &cabeza,int idCita, string sintomas1,int anno,int mes,in
 	ingresarFinalDoctor(ListD,"Luis","Monge","Abarca","Dentista",1);
     ingresarFinalDoctor(ListD,"Rodrigo","Guevara","Hidalgo","Cirujano",1);
     ingresarFinalDoctor(ListD,"Jose","Quiros","Meneses","Psicologo",1);
-    asignarCita(ListC,1,"fractura",2020,12,10,20,30);
+    asignarCita1(ListC,1,1,2020,12,10,20,30,1,1);
     
     int c = 0;
 	//string input = " aB4$cfgty";
@@ -971,7 +976,28 @@ void asignarCita(listaC &cabeza,int idCita, string sintomas1,int anno,int mes,in
 					 system("Pause");
             break;
             case 5:
-                    cout<<"por hacer"<<endl;
+                    cout << "Digite cual es el sintoma: " <<endl;
+                    cin >> inputsintomas1;
+                    cout << "Digite el dia: " <<endl;
+                    cin >> inputdia;
+                    cout << "Digite el mes: " <<endl;
+                    cin >> inputmes;
+                    cout << "Digite el anno: " <<endl;
+                    cin >> inputanno;
+                    cout << "Digite la hora: " <<endl;
+                    cin >> inputhora;
+                    cout << "Digite los minutos: " <<endl;
+                    cin >> inputminutos;
+                    mostrarDoctor(ListD);
+                    cout << "Digite el id del doctor: " <<endl;
+                    cin >> inputdoc;
+                    mostrarPaciente(ListP);
+                    cout << "Digite el id de paciente: " <<endl;
+                    cin >> inputpac;
+                    
+                    idCita=rand()%100;
+                    
+                    asignarCita1(ListC,idCita,inputsintomas1,inputanno,inputmes,inputdia,inputhora,inputminutos,inputdoc,inputpac);
             break;
             case 6:
                     cout<<"por hacer"<<endl;
