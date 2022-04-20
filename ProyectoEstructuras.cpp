@@ -757,9 +757,11 @@ void desactivar (lista &cabeza,int codigoUsuario)
 }
 
 
-	void printStrongNess(string& input)
+	void printStrongNess(string& input,int& check)
 {
     int n = input.length();
+    check = 0;
+ 
  
     // Checking lower alphabet in string
     bool hasLower = false, hasUpper = false;
@@ -781,13 +783,16 @@ void desactivar (lista &cabeza,int codigoUsuario)
     }
  
     // Strength of password
-    cout << "Strength of password: ";
+    cout << "Complejidad de contrasena: ";
     if (hasLower && hasUpper && hasDigit &&
-        specialChar && (n >= 8))
-        cout << "La contrasena si cumple con los requisitos" << endl;
-    else 
-        cout<< "La contrasena no cumple con los requisitos"<<endl;
+        specialChar && (n >= 8)){
+        cout << "La contrasena si cumple con los requisitos, puede continuar con el registro" <<  endl;
+        check = 1;
+    } else {
+        cout<< "La contrasena no cumple con los requisitos, debe ser mas compleja"<<endl;
+        check = 0;
     }
+};
 
 	
     int main(){
@@ -803,10 +808,11 @@ void desactivar (lista &cabeza,int codigoUsuario)
     lista List=NULL;
     listaP ListP=NULL;
     listaD ListD=NULL;
+    int c = 0;
 	//string input = " aB4$cfgty";
     //printStrongNess(input);
     //return 0;
-
+/*
     do
     {
         
@@ -844,7 +850,7 @@ void desactivar (lista &cabeza,int codigoUsuario)
                             
             break;
             case 2: 
-                  mostrarPaciente(ListP,ListD);
+                  mostrarPaciente(ListP);
             break;
             case 3: 
                      
@@ -856,7 +862,7 @@ void desactivar (lista &cabeza,int codigoUsuario)
                     cout<<"Digite la cedula del paciente que desea eliminar"<<endl;
                     cin>>cedula;
 					eliminarPaciente(ListP,cedula);
-					mostrarPaciente(ListP,ListD);
+					mostrarPaciente(ListP);
 					 system("Pause");
             break;
             case 5:
@@ -883,8 +889,8 @@ void desactivar (lista &cabeza,int codigoUsuario)
         }
     }
     while(opcion!=8);
+*/
 
-/*
     do
     {
         
@@ -922,9 +928,14 @@ void desactivar (lista &cabeza,int codigoUsuario)
                     cin >> tipo;
                      cout << "Digite el nombre de la cuenta del usuario: " <<endl;
                     cin >> cuenta;
-                     cout << "Digite la contrasenna: " <<endl;
+                    
+                    cout << "Digite la contrasenna: " <<endl;
+                    do{
                     cin >> contrasenna;
-                     cout << "Digite el estado de la cuenta, activa o inactiva: " <<endl;
+                    printStrongNess(contrasenna,c);
+                    }while(c!=1);
+                    
+                    cout << "Digite el estado de la cuenta, activa o inactiva: " <<endl;
                     cin >> activacion;
                     
                     ingresarFinalUsuarios(List,nombre,apellido1,apellido2,codigo,tipo,cuenta,contrasenna,activacion);
@@ -1012,6 +1023,6 @@ void desactivar (lista &cabeza,int codigoUsuario)
         }
     }
     while(opcion!=12);
-    */
+    
     cout << "Fin del sistema" <<endl;
     }
