@@ -228,7 +228,6 @@ void ingresarFinalPaciente(listaP &cabeza,string nombre, string apellido1,string
         cabeza->siguiente=cabeza;
         cabeza->anterior=cabeza;
         cout<<"\n\tPaciente "<<nombre<<" fue agregado"<<endl;
-        cout << "\n\t"; system("Pause");
     }
 
  
@@ -240,7 +239,6 @@ void ingresarFinalPaciente(listaP &cabeza,string nombre, string apellido1,string
 		cabeza->anterior=nuevo;
 		cabeza=nuevo;
     	cout<<"\n\tPaciente "<<nombre<<" fue agregado"<<endl;
-    	cout << "\n\t"; system("Pause");
     }
 }
 
@@ -404,7 +402,7 @@ void eliminarPaciente(listaP &cabeza,int ced)
 				aux->anterior=NULL;
 				aux->siguiente=NULL;			
 				delete(aux);		
-					cout<<"\n\tPaciente "<<ced<<" eliminado"<<endl;		
+					cout<<"\n\tPaciente con cédula "<<ced<<" eliminado con éxito"<<endl;		
 				aux=cabeza;
 			}
 			else
@@ -416,7 +414,7 @@ void eliminarPaciente(listaP &cabeza,int ced)
 					aux->siguiente=NULL;
 					aux->anterior=NULL;      					
 					delete(aux);
-					cout<<"\n\tPaciente "<<ced<<" eliminado"<<endl;
+					cout<<"\n\tPaciente con cédula "<<ced<<" eliminado con éxito"<<endl;
 					aux=cabeza;                         
 				}
 
@@ -443,30 +441,28 @@ void modificarPaciente(listaP &cabeza,int cedula)
         {
         	if(aux->cedula==cedula && aux==cabeza)
 			{
+			cout<<"\n\t------------------------"<<endl;
 		    cout<<"\tNombre Actual: "<<aux->nombre<<endl;
             cout<<"\tPrimer apellido actual: "<<aux->apellido1<<endl;
             cout<<"\tSegundo apellido actual: "<<aux->apellido2<<endl;
             cout<<"\tNumero de telefono actual: "<<aux->telefono<<endl;
             cout<<"\tSintomas actuales: "<<aux->sintomas<<endl;
             cout<<"\tFecha de ingreso actual: "<<aux->fechaIngreso<<endl;
-            cout<<" "<<endl;
             cout<<"\t------------------------"<<endl;
-            cout<<"\tNuevo nombre: "<<endl;
+            cout<<"\n\tNuevo nombre				: ";
             cin>>nombren;         
-            cout<<"\tNuevo primer apellido: "<<endl;
+            cout<<"\tNuevo primer apellido			: ";
             cin>>apellido1n;
-            cout<<"\tNuevo segundo apellido: "<<endl;
+            cout<<"\tNuevo segundo apellido			: ";
             cin>>apellido2n;
-            cout<<"\tNuevo numero de telefono: "<<endl;
+            cout<<"\tNuevo numero de telefono		: ";
             cin>>telefonon;
-            cout<<"\tNuevos sintomas:\n\n \t\t[1]Gangrena \n \t\t[2]Carie\n \t\t[3]Fractura\n \t\t[4]Depresion\n "<<endl;
+            cout <<"\n\t\t[1] Gangrena \n\t\t[2] Carie\n\t\t[3] Fractura\n\t\t[4] Depresion\n";
+            cout<<"\n\tNuevo sintoma				: ";
             cin>>sintomasn;
-            cout<<"\tNueva fecha de ingreso: "<<endl;
+            cout<<"\tNueva fecha de ingreso	(DD/MM/YYYY)	: ";
             cin>>fechan;
-            cout<<"\t------------------------"<<endl;
-            cout<<" "<<endl;
-             
-            cout<<"\tDesea guardar los cambios?\n 1)SI \n 2)NO"<<endl;
+            cout<<"\n\tDesea guardar los cambios? ([1] SI / [2]NO)	: ";
             cin>>opcion;
              
             if(opcion==1)  {
@@ -479,17 +475,14 @@ void modificarPaciente(listaP &cabeza,int cedula)
             aux->fechaIngreso=fechan;
             
             
-            cout<<" "<<endl;
-            cout<<"\t------------------------"<<endl;
-            cout<<"\tNuevo nombre modificado: "<<nombren<<endl;
-            cout<<"\tNuevo primer apellido modificado: "<<apellido1n<<endl;
-            cout<<"\tNuevo segundo apellido modificado: "<<apellido2n<<endl;
-            cout<<"\tNuevo telefono modificado: "<<telefonon<<endl;
-            cout<<"\tNuevos sintomas modificados: "<<sintomasn<<endl;
-            cout<<"\tNueva fecha de ingreso modificada: "<<fechan<<endl;
-
-            cout<<"------------------------"<<endl;
-            cout<<" "<<endl;
+            cout<<"\n\t-----------NUEVOS DATOS-------------"<<endl;
+            cout<<"\tNuevo nombre: "<<nombren<<endl;
+            cout<<"\tNuevo primer apellido: "<<apellido1n<<endl;
+            cout<<"\tNuevo segundo apellido: "<<apellido2n<<endl;
+            cout<<"\tNuevo teléfono: "<<telefonon<<endl;
+            cout<<"\tNuevos síntomas: "<<sintomasn<<endl;
+            cout<<"\tNueva fecha de ingreso: "<<fechan<<endl;
+            cout<<"\t------------------------------------\n"<<endl;
 		    }
 		    else if(opcion==2)
 		    {
@@ -503,30 +496,29 @@ void modificarPaciente(listaP &cabeza,int cedula)
 			{
 				if(aux->cedula==cedula && aux!=cabeza)
 				{
-		cout<<"\tNombre Actual: "<<aux->nombre<<endl;
+					
+			cout<<"\n\t------------------------"<<endl;
+		    cout<<"\tNombre Actual: "<<aux->nombre<<endl;
             cout<<"\tPrimer apellido actual: "<<aux->apellido1<<endl;
             cout<<"\tSegundo apellido actual: "<<aux->apellido2<<endl;
             cout<<"\tNumero de telefono actual: "<<aux->telefono<<endl;
             cout<<"\tSintomas actuales: "<<aux->sintomas<<endl;
             cout<<"\tFecha de ingreso actual: "<<aux->fechaIngreso<<endl;
-            cout<<" "<<endl;
             cout<<"\t------------------------"<<endl;
-            cout<<"\tNuevo nombre: "<<endl;
+            cout<<"\n\tNuevo nombre				: ";
             cin>>nombren;         
-            cout<<"\tNuevo primer apellido: "<<endl;
+            cout<<"\tNuevo primer apellido			: ";
             cin>>apellido1n;
-            cout<<"\tNuevo segundo apellido: "<<endl;
+            cout<<"\tNuevo segundo apellido			: ";
             cin>>apellido2n;
-            cout<<"\tNuevo numero de telefono: "<<endl;
+            cout<<"\tNuevo numero de telefono		: ";
             cin>>telefonon;
-            cout<<"\tNuevos sintomas: "<<endl;
+            cout <<"\n\t\t[1] Gangrena \n\t\t[2] Carie\n\t\t[3] Fractura\n\t\t[4] Depresion\n";
+            cout<<"\n\tNuevo sintoma				: ";
             cin>>sintomasn;
-            cout<<"\tNueva fecha de ingreso: "<<endl;
+            cout<<"\tNueva fecha de ingreso	(DD/MM/YYYY)	: ";
             cin>>fechan;
-            cout<<"\t------------------------"<<endl;
-            cout<<" "<<endl;
-             
-            cout<<"\n\tDesea guardar los cambios?\n 1)SI \n 2)NO"<<endl;
+            cout<<"\n\tDesea guardar los cambios? ([1] SI / [2]NO)	: ";
             cin>>opcion;
              
             if(opcion==1)  {
@@ -539,17 +531,14 @@ void modificarPaciente(listaP &cabeza,int cedula)
             aux->fechaIngreso=fechan;
             
             
-            cout<<" "<<endl;
-            cout<<"\t------------------------"<<endl;
-            cout<<"\tNuevo nombre modificado: "<<nombren<<endl;
-            cout<<"\tNuevo primer apellido modificado: "<<apellido1n<<endl;
-            cout<<"\tNuevo segundo apellido modificado: "<<apellido2n<<endl;
-            cout<<"\tNuevo telefono modificado: "<<telefonon<<endl;
-            cout<<"\tNuevos sintomas modificados: "<<sintomasn<<endl;
-            cout<<"\tNueva fecha de ingreso modificada: "<<fechan<<endl;
-
-            cout<<"\t------------------------"<<endl;
-            cout<<" "<<endl;
+            cout<<"\n\t-----------NUEVOS DATOS-------------"<<endl;
+            cout<<"\tNuevo nombre: "<<nombren<<endl;
+            cout<<"\tNuevo primer apellido: "<<apellido1n<<endl;
+            cout<<"\tNuevo segundo apellido: "<<apellido2n<<endl;
+            cout<<"\tNuevo teléfono: "<<telefonon<<endl;
+            cout<<"\tNuevos síntomas: "<<sintomasn<<endl;
+            cout<<"\tNueva fecha de ingreso: "<<fechan<<endl;
+            cout<<"\t------------------------------------\n"<<endl;
 		    
 		    }
 		    else if(opcion==2)
@@ -1285,7 +1274,7 @@ void mostrarCitasMes (listaC cabeza,int ms)
         {
 if(aux->mes==ms)
 {
-        	cout<<"\t\n------------------------"<<endl;
+        	cout<<"\n\t------------------------"<<endl;
             cout<<"\tID de la Cita: "<<aux->idCita<<endl;
             cout<<"\tSintomas del paciente: "<<aux->sintomas1<<endl;
             cout<<"\tAño: "<<aux->anno<<endl;
@@ -1295,7 +1284,7 @@ if(aux->mes==ms)
             cout<<"\tMinutos: "<<aux->minutos<<endl;
             cout<<"\tDoctor: "<<aux->doc1<<endl;
             cout<<"\tPaciente: "<<aux->pac1<<endl;
-            cout<<"\t------------------------\n\n"<<endl;
+            cout<<"\t------------------------\n"<<endl;
            
 }
 aux=aux->siguiente;
@@ -1303,6 +1292,75 @@ aux=aux->siguiente;
         while (aux!=cabeza);
         
     }
+}
+
+void mostrarPacienteCedula (listaP cabeza,int cedsolicitada)
+{
+    listaP aux;
+    string defsinto;
+    if (cabeza==NULL)
+    cout<<"\n\tLista vacia"<<endl;
+    else
+    {
+        aux=cabeza;
+        
+        do
+        {
+			if(aux->cedula==cedsolicitada)
+			{
+
+            if (aux->sintomas==1){
+        		defsinto="Gangrena";
+			}else if(aux->sintomas==2){
+				defsinto="Carie";
+			}else if(aux->sintomas==3){
+				defsinto="Fractura";
+			}else if(aux->sintomas==4){
+				defsinto="Depresión";
+			}
+        	
+        	cout<<"\n\t------------------------"<<endl;
+            cout<<"\tNombre: "<<aux->nombre<<endl;
+            cout<<"\tPrimer apellido: "<<aux->apellido1<<endl;
+            cout<<"\tSegundo apellido: "<<aux->apellido2<<endl;
+            cout<<"\tCedula: "<<aux->cedula<<endl;
+            cout<<"\tTelefono: "<<aux->telefono<<endl;
+            cout<<"\tSintomas: "<<defsinto<<" ["<<aux->sintomas<<"] "<<endl;
+            cout<<"\tFecha de ingreso: "<<aux->fechaIngreso<<endl;
+            cout<<"\t------------------------"<<endl;
+			}
+			aux=aux->siguiente;
+        } 
+        while (aux!=cabeza);
+    }
+}
+
+void mostrarDoctorCodigo (listaD cabeza,int codsolicitado)
+{
+    listaD aux;
+    string defsinto;
+    if (cabeza==NULL)
+    cout<<"\n\tLista vacia"<<endl;
+
+    else
+    {
+        aux=cabeza;
+        
+        do
+        {
+			if(aux->codigoD==codsolicitado)
+			{
+        	
+        	cout<<"\n\t------------------------"<<endl;
+            cout<<"\tNombre: "<<aux->nombre<<" "<<aux->apellido1<<" "<<aux->apellido2;
+            cout<<"\n\tEspecialidad: "<<aux->especialidad<<endl;
+            cout<<"\tCodigo: "<<aux->codigoD<<endl;
+            cout<<"\t------------------------"<<endl;
+		
+       	 	}
+			aux=aux->siguiente; 
+    	} while (aux!=cabeza);
+	}
 }
 
 //Cantidad atendida de pacientes segun dia y mes
@@ -1353,6 +1411,32 @@ aux=aux->siguiente;
         
     }
 cout<<"La cantidad de doctores es: "<<contador<<endl;
+}
+
+// Verificar la cantidad de pacientes atendidos por doctor
+void contarPacienteDoctor(listaC cabeza,int doctorSoli)
+{
+	
+  	listaC aux;
+	int contador=0;
+	
+    if (cabeza==NULL)
+    cout<<"\n\tLista vacia"<<endl;
+    else
+    {
+		aux=cabeza;
+		    do
+		    {
+				if(aux->doc1==doctorSoli)
+					{
+						    contador=contador+1;
+						           
+					}
+				aux=aux->siguiente;
+		    } 
+		while (aux!=cabeza);
+    }
+	cout<<"\n\tLa cantidad de pacientes atendidos por el doctor con codigo "<< doctorSoli <<" es de: "<<contador<<endl;
 }
 
 void contarPacientesEspecialidad(listaC cabeza){
@@ -1429,7 +1513,7 @@ cout<<"Cantidad de pacientes atendidos por Psicologos: "<<contadorPsicologo<<end
 void menuEstandar()
 {
 	string nombre,apellido1,apellido2,fechaIngreso,inputEspecialidad;
-	int opcion,cedula,telefono,sintomas,inputpac,inputdia,inputmes,inputanno,inputhora,inputminutos,var1,inputdoc,idCita,mes,dia;
+	int opcion,cedula,telefono,sintomas,inputpac,inputdia,inputmes,inputanno,inputhora,inputminutos,var1,inputdoc,idCita,mes,dia,cedsolicitada,codsolicitado,doctorSoli;
 	
 	lista List=NULL;
     listaP ListP=NULL;
@@ -1454,27 +1538,33 @@ void menuEstandar()
 		cout<<"\n\tMENU PRINCIPAL ESTANDAR\t";
 		cout<<"\n\t<<<<<<<<<<<<<<<<<<<<<<<<<<\n\n";
 		
-        cout << "\t1: Ingresar un nuevo paciente" <<endl;
-        cout << "\t2: Mostrar pacientes" <<endl;
-        cout << "\t3: Modificar paciente" <<endl;
-        cout << "\t4: Eliminar paciente\n\n" <<endl;
+        cout << "\t 1: Ingresar un nuevo paciente" <<endl;
+        cout << "\t 2: Mostrar pacientes" <<endl;
+        cout << "\t 3: Verificar los datos de un paciente por número de cedula"<<endl;
+        cout << "\t 4: Modificar paciente" <<endl;
+        cout << "\t 5: Verificar la cantidad de pacientes atendidos según especialidad"<<endl; 
+        cout << "\t 6: Verificar la cantidad de pacientes atendidos según día y mes"<<endl;
+        cout << "\t 7: Eliminar paciente\n" <<endl;
         
-        cout << "\t5: Asignar una cita medica" <<endl;
-        cout << "\t6: Modificar una cita medica" <<endl;
-        cout << "\t7: Mostrar citas medicas" <<endl;
-        cout << "\t8: Mostrar citas medicas del mes seleccionado" <<endl;
-         cout << "\t9: Mostrar citas medicas del dia y mes seleccionado" <<endl;
-        cout << "\t10: Eliminar cita medica"<<endl;
-        cout << "\t11: Cantidad de pacientes por especialidad"<<endl;
-        cout<<"\t12: Cantidad de doctores por especialidad"<<endl;
+        cout << "\t 8: Asignar una cita medica" <<endl;
+        cout << "\t 9: Modificar una cita medica" <<endl;
+        cout << "\t10: Mostrar citas medicas" <<endl;
+        cout << "\t11: Verificar las citas establecidas por un mes indicado" <<endl;
+        cout << "\t12: Eliminar cita medica\n"<<endl;
         
-        cout << "\t13: Salir\n\n" <<endl;
+		cout << "\t13: Ver lista de doctores en la clinica"<<endl;     
+        cout << "\t14: Verificar la cantidad de doctores de acuerdo a la especialidad"<<endl;
+        cout << "\t15: Verificar los datos de un doctor por código del doctor"<<endl;
+        cout << "\t16: Verificar la cantidad de pacientes atendidos por doctor\n"<<endl;
+        
+        cout << "\t17: Salir\n\n" <<endl;
         
         cout << "\tLa opcion que desea es: ";
         cin >> opcion;
         switch (opcion)
         {
             case 1: 
+            		// Ingresa un nuevo paciente
                     cout << "\n\tDigite el nombre del paciente		: ";
                     cin >> nombre;
                     cout << "\tDigite el primer apellido del paciente		: ";
@@ -1491,29 +1581,48 @@ void menuEstandar()
                     cout << "\tDigite la fecha de ingreso  del paciente: ";
                     cin >> fechaIngreso;
 
-                    
                     ingresarFinalPaciente(ListP,nombre,apellido1,apellido2,cedula,telefono,sintomas,fechaIngreso);
                             
             	break;
             case 2: 
-                  mostrarPaciente(ListP);
-                  cout << "\n\t"; system("Pause");
+            		//muestra a todos los pacientes
+                  	mostrarPaciente(ListP);
+                 	cout << "\n\t"; system("Pause");
             	break;
             case 3: 
-                     
+					//Verificar los datos de un paciente por número de cedula	
+            	    cout << "\n\tDigite la cédula del paciente que desea mostrar	: ";
+           			cin >> cedsolicitada;
+            		mostrarPacienteCedula(ListP,cedsolicitada);
+            		cout << "\n\t"; system("Pause");
+            break;
+            case 4: 
+                    //modifica a un paciente
                     cout<<"\tDigite el numero de cedula del paciente que desea modificar: ";
                     cin>>cedula;
                     modificarPaciente(ListP,cedula);
                     cout << "\n\t"; system("Pause");
             	break;
-            case 4:
+            case 5:
+            		contarPacientesEspecialidad(ListC);
+					cout << "\n\t"; system("Pause");
+            	break;
+            case 6:
+            	    cout<<"\tDigite el mes que desea ver"<<endl;
+					cin>>mes;
+					cout<<"\tDigite el dia que desea ver"<<endl;
+					cin>>dia;
+					contarPacientesDiaMes(ListC,mes,dia);
+					cout << "\n\t"; system("Pause");
+            	break;
+            case 7:
+            		// elimina a un paciente
                     cout<<"\tDigite la cedula del paciente que desea eliminar  : ";
                     cin>>cedula;
 					eliminarPaciente(ListP,cedula);
-					
 					cout << "\n\t"; system("Pause");
             	break;
-            case 5:
+            case 8:
 
                     mostrarPaciente(ListP);
                     cout << "\tDigite el cedula de paciente	: ";
@@ -1534,39 +1643,29 @@ void menuEstandar()
                     buscarEspecialidad(ListD,var1);
                     cout << "\tDigite el id del doctor: ";
                     cin >> inputdoc;
-                   
                     cout << "\n\t"; system("Pause");
-                    
                     idCita=rand()%100;
                     
                     asignarCita(ListC,idCita,sintomas,inputanno,inputmes,inputdia,inputhora,inputminutos,inputdoc,inputpac);
                     cout << "\n\t"; system("Pause");
             	break;
-            case 6:
+            case 9:
                     cout<<"\tDigite el id de la cita que desea modificar"<<endl;
                     cin>>idCita;
 					modificarCita(ListC,idCita);
             	break;
-            case 7:
+            case 10:
                 	mostrarCitas(ListC);
 					cout << "\n\t"; system("Pause");	
             	break;
-            case 8:
-			cout<<"\tDigite el mes que desea ver"<<endl;
-			cin>>mes;
-			mostrarCitasMes(ListC,mes);
-			cout << "\n\t"; system("Pause");
-            	break;
-            	
-            	case 9:
+            case 11:
 					cout<<"\tDigite el mes que desea ver"<<endl;
 					cin>>mes;
-					cout<<"\tDigite el dia que desea ver"<<endl;
-					cin>>dia;
-					contarPacientesDiaMes(ListC,mes,dia);
-						cout << "\n\t"; system("Pause");
+					mostrarCitasMes(ListC,mes);
+					cout << "\n\t"; system("Pause");
             	break;
-            case 10:
+            	
+            case 12:
 					cout<<"\n\tDigite el id de la cita que desea eliminar"<<endl;
 				cin>>idCita;
                 eliminarCita(ListC,idCita);
@@ -1574,20 +1673,35 @@ void menuEstandar()
 				
 				break;
 				
-			case 11:
-				contarPacientesEspecialidad(ListC);
-				cout << "\n\t"; system("Pause");
+			case 13:
+				    // Visualiza la lista de doctores en la clinica y la cantidad
+            		mostrarDoctor(ListD);
+            		cout << "\n\t"; system("Pause");
 				break;
-            case 12:
+
+            case 14:
             	cout <<"\n\t\t[1] Gangrena \n\t\t[2] Carie\n\t\t[3] Fractura\n\t\t[4] Depresion\n";
 				cout<<"\n\tDigite la especialidad que desea ver		:";
 				cin>>inputEspecialidad;
 				contarDoctoresEspecialidad(ListD,inputEspecialidad);
 				cout << "\n\t"; system("Pause");
 				break;
+			case 15:
+				cout << "\n\tDigite el codigo del doctor que desea mostrar	: ";
+           		cin >> codsolicitado;
+            	mostrarDoctorCodigo(ListD,codsolicitado);
+            	cout << "\n\t"; system("Pause");
+			break;
+			case 16:
+				cout << "\n\tDigite el codigo del doctor desea conocer la cantidad de pacientes atendidos	: ";
+           		cin >> doctorSoli;
+ 				contarPacienteDoctor(ListC,doctorSoli);
+				cout << "\n\t"; system("Pause");
+				
+			break;
         }
     }
-    while(opcion!=13);
+    while(opcion!=17);
     
    cout<<"Fin del sistema"<<endl;
 }
@@ -1595,8 +1709,8 @@ void menuEstandar()
 void menuAdmin()
 {
 
-string nombre, apellido1,apellido2,cuenta,contrasenna,activacion,especialidad,fechaIngreso;
-int codigo,codigoUsuario,codigoD,cedula,telefono,sintomas,c = 0;
+string nombre, apellido1,apellido2,cuenta,contrasenna,activacion,especialidad,fechaIngreso,inputEspecialidad;
+int codigo,codigoUsuario,codigoD,cedula,telefono,sintomas,c = 0,cedsolicitada,codsolicitado,doctorSoli,mes,dia;
 char tipo;
 
  	lista List=NULL;
@@ -1622,21 +1736,30 @@ char tipo;
 		cout<<"\n\t>>>>>>>>>>>>>>>>>>>>>>>>>>";
 		cout<<"\n\tMENÚ PRINCIPAL ADMINISTRADOR\t";
 		cout<<"\n\t<<<<<<<<<<<<<<<<<<<<<<<<<<\n\n";
+		
         cout << "\t 1: Ingresar un nuevo usuario" <<endl;
         cout << "\t 2: Ver lista de usuarios" <<endl;
-        cout << "\t 3: Activar o desactivar una cuenta\n\n" <<endl;
+        cout << "\t 3: Activar o desactivar una cuenta\n" <<endl;
 
         cout << "\t 4: Registrar nuevo doctor" <<endl;
         cout << "\t 5: Eliminar doctor" <<endl;
         cout << "\t 6: Modificar datos de un doctor" <<endl;
-        cout << "\t 7: Ver lista de doctores\n\n" <<endl;
+        cout << "\t 7: Ver lista de doctores en la clinica" <<endl;
+    	cout << "\t 8: Verificar la cantidad de doctores por especialidad"<<endl;
+        cout << "\t 9: Verificar los datos de un doctor por código del doctor"<<endl;
+        cout << "\t10: Verificar la cantidad de pacientes atendidos por doctor\n"<<endl;
 
-        cout << "\t 8: Ingresar paciente" <<endl; 
-		 cout <<"\t 9: Ver lista de pacientes" <<endl;    
-        cout << "\t10: Eliminar paciente" <<endl;
-        cout << "\t11: Modificar datos de paciente\n\n" <<endl;
+		cout << "\t11: Verificar las citas establecidas por un mes indicado\n"<<endl;
 
-        cout << "\t12. Salir\n\n" <<endl;
+        cout << "\t12: Ingresar paciente" <<endl; 
+		cout << "\t13: Mostrar lista de pacientes" <<endl;
+		cout << "\t14: Verificar los datos de un paciente por número de cedula" <<endl;   
+		cout << "\t15: Verificar la cantidad de pacientes atendidos según día y mes"<<endl;   
+        cout << "\t16: Eliminar paciente" <<endl;
+        cout << "\t17: Modificar datos de paciente" <<endl;
+    	cout << "\t18: Verificar la cantidad de pacientes atendidos según especialidad\n"<<endl;
+
+        cout << "\t19. Salir\n\n" <<endl;
         cout << "\tLa opción que desea es: ";
         cin >> opcion;
         switch (opcion)
@@ -1673,14 +1796,14 @@ char tipo;
                   
             break;
             case 3: 
-            
-            cout<<"\n\tDigite la cédula del usuario que desea activar o desactivar: ";
-       		cin>>codigoUsuario;
-       		modificarEstado(List,codigoUsuario);
-       		cout << "\n\t"; system("Pause");
+	            cout<<"\n\tDigite la cédula del usuario que desea activar o desactivar: ";
+	       		cin>>codigoUsuario;
+	       		modificarEstado(List,codigoUsuario);
+	       		cout << "\n\t"; system("Pause");
                     //desactivar(List,codigoUsuario);
             break;
             case 4:
+            		// Registra un nuevo doctor
                     cout << "\n\tDigite el nombre del doctor			: ";
                     cin >> nombre;
                     cout << "\tDigite el primer apellido del doctor		: ";
@@ -1697,25 +1820,52 @@ char tipo;
                     cout << "\n\t"; system("Pause");
             		break;
             case 5:
-            	
+            		// Elimina un doctor
                     cout<<"\n\tDigite el código del doctor que desea eliminar	: ";
                     cin>>codigoD;
 				    eliminarDoctor(ListD,codigoD);
-				    //	mostrarDoctor(ListD);
 				    cout << "\n\t"; system("Pause");
             		break;
             case 6:
-                     cout<<"\n\tDigite el código del doctor que desea modificar	: ";
-                     cin>>codigoD;
-                     modificarDoctor(ListD,codigoD);
-                     cout << "\n\t"; system("Pause");
+            		// Modifica datos de un doctor
+                    cout<<"\n\tDigite el código del doctor que desea modificar	: ";
+                    cin>>codigoD;
+                    modificarDoctor(ListD,codigoD);
+                    cout << "\n\t"; system("Pause");
             break;
             case 7:
+            		// Visualiza la lista de doctores en la clinica y la cantidad
             		mostrarDoctor(ListD);
             		cout << "\n\t"; system("Pause");
-                    //cout<<"por hacer"<<endl;
             break;
-             case 8:
+            case 8:
+            	cout <<"\n\t\t[1] Gangrena \n\t\t[2] Carie\n\t\t[3] Fractura\n\t\t[4] Depresion\n";
+				cout<<"\n\tDigite la especialidad que desea ver		:";
+				cin>>inputEspecialidad;
+				contarDoctoresEspecialidad(ListD,inputEspecialidad);
+				cout << "\n\t"; system("Pause");
+            break;
+            case 9:
+            	cout << "\n\tDigite el codigo del doctor que desea mostrar	: ";
+           		cin >> codsolicitado;
+            	mostrarDoctorCodigo(ListD,codsolicitado);
+            	cout << "\n\t"; system("Pause");	
+            break;
+            case 10:
+            	
+            	cout << "\n\tDigite el codigo del doctor desea conocer la cantidad de pacientes atendidos	: ";
+           		cin >> doctorSoli;
+ 				contarPacienteDoctor(ListC,doctorSoli);
+				cout << "\n\t"; system("Pause");
+            	
+            break;
+            case 11:
+            		cout<<"\tDigite el mes que desea ver"<<endl;
+					cin>>mes;
+					mostrarCitasMes(ListC,mes);
+					cout << "\n\t"; system("Pause");
+            break;
+            case 12:
                     cout << "\n\tDigite el nombre del paciente			: ";
                     cin >> nombre;
                     cout << "\tDigite el primer apellido del paciente		: ";
@@ -1734,27 +1884,44 @@ char tipo;
 					ingresarFinalPaciente(ListP,nombre,apellido1,apellido2,cedula,telefono,sintomas,fechaIngreso);
 					 cout << "\n\t"; system("Pause");
             break;
-             case 9:
+            
+            case 13:
                      mostrarPaciente(ListP);
                       cout << "\n\t"; system("Pause");
             break;
-            case 10:
-                      cout<<"Digite la cédula del paciente que desea eliminar"<<endl;
+           	case 14:
+           			cout << "\n\tDigite la cédula del paciente que desea mostrar	: ";
+           			cin >> cedsolicitada;
+            		mostrarPacienteCedula(ListP,cedsolicitada);
+            		cout << "\n\t"; system("Pause");
+            	break;
+            case 15:
+            		cout<<"\tDigite el mes que desea ver"<<endl;
+					cin>>mes;
+					cout<<"\tDigite el dia que desea ver"<<endl;
+					cin>>dia;
+					contarPacientesDiaMes(ListC,mes,dia);
+					cout << "\n\t"; system("Pause");
+            	break;	
+            case 16:
+                    cout<<"\n\tDigite la cédula del paciente que desea eliminar	: ";
                     cin>>cedula;
 					eliminarPaciente(ListP,cedula);
-					mostrarPaciente(ListP);
-					 cout << "\n\t"; system("Pause");
+					cout << "\n\t"; system("Pause");
             break;
-            case 11:
-                      cout<<"Digite el número de cédula del paciente que desea modificar"<<endl;
+            case 17:			
+					cout<<"\n\tDigite el numero de cedula del paciente que desea modificar: ";
                     cin>>cedula;
                     modificarPaciente(ListP,cedula);
                     cout << "\n\t"; system("Pause");
-					
+            break;
+            case 18:
+            		contarPacientesEspecialidad(ListC);
+					cout << "\n\t"; system("Pause");
             break;
         }
     }
-    while(opcion!=12);
+    while(opcion!=19);
     menuEstandar();
     cout << "Fin del sistema" <<endl;
 }
@@ -1801,14 +1968,14 @@ char tipo;
 
     
   	cout<<"\n\t>>>>>>>>>>>>>>>>>>>>>>>>>>";
-		cout<<"\n\tLogin\t";
+		cout<<"\n\t\t  LOGIN";
 		cout<<"\n\t<<<<<<<<<<<<<<<<<<<<<<<<<<\n\n";
 		
         cout << "\t1: Ingresar como Administrador" <<endl;
         cout << "\t2: Ingresar como usuario Estandar" <<endl;
         
     
-        cout << "\tLa opcion que desea es: ";
+        cout << "\n\tLa opcion que desea es: ";
         
         do
     {
