@@ -1516,19 +1516,19 @@ void menuEstandar()
     ingresarFinalPacienteSinNotf(ListP,"Juan","Ramirez","Castillo",104580214,71247310,4,"16/4/2022");
     ingresarFinalPacienteSinNotf(ListP,"Haziel","Lopez","Rodriguez",117890720,8654676,2,"12/1/2021");
     ingresarFinalPacienteSinNotf(ListP,"Adrian","Tenorio","Ruiz",117660300,6765748,3,"3/2/2022");
-    ingresarFinalPacienteSinNotf(ListP,"Glen","Mendoza","Cedeño",116632319,7675648,1,"19/2/2021");
+    ingresarFinalPacienteSinNotf(ListP,"Glen","Mendoza","Cedeño",703040356,72068064,1,"19/2/2021");
     ingresarFinalPacienteSinNotf(ListP,"Andres","Jimenez","Ortiz",118660309,8765443,4,"29/1/2022");
     ingresarFinalPacienteSinNotf(ListP,"Pablo","Gutierrez","Herrera",116660302,7765340,4,"28/3/2021");
-     ingresarFinalPacienteSinNotf(ListP,"Valentina","Meneses","Lopez",12530304,8163349,4,"19/2/2022");
+    ingresarFinalPacienteSinNotf(ListP,"Valentina","Meneses","Lopez",12530304,8163349,4,"19/2/2022");
      
     ingresarFinalDoctorSinNoft(ListD,"Juan","Guadamuz","Fernandez","Dermatologo",1);
 	ingresarFinalDoctorSinNoft(ListD,"Luis","Monge","Abarca","Dentista",2);
     ingresarFinalDoctorSinNoft(ListD,"Rodrigo","Guevara","Hidalgo","Cirujano",3);
-     ingresarFinalDoctorSinNoft(ListD,"Jason","Ortega","Herrera","Cirujano",5);
+    ingresarFinalDoctorSinNoft(ListD,"Jason","Ortega","Herrera","Cirujano",5);
     ingresarFinalDoctorSinNoft(ListD,"Jose","Quiros","Meneses","Psicologo",4);
-     ingresarFinalDoctorSinNoft(ListD,"Gabriella","Quiros","Barrientos","Psicologo",5);
-      ingresarFinalDoctorSinNoft(ListD,"Maria","Chavarria","Herrera","Dentista",6);
-       ingresarFinalDoctorSinNoft(ListD,"Mario","Jimenez","Echeverria","Dermatologo",7);
+    ingresarFinalDoctorSinNoft(ListD,"Gabriella","Quiros","Barrientos","Psicologo",5);
+    ingresarFinalDoctorSinNoft(ListD,"Maria","Chavarria","Herrera","Dentista",6);
+    ingresarFinalDoctorSinNoft(ListD,"Mario","Jimenez","Echeverria","Dermatologo",7);
     
     asignarCitaSinNotf(ListC,1,1,2020,12,10,20,30,1,1);
     asignarCitaSinNotf(ListC,2,2,2021,11,18,22,20,2,116660302);
@@ -1553,14 +1553,12 @@ void menuEstandar()
         cout << "\t8: Ingresar expediente" <<endl;
         cout << "\t9: Mostrar expedientes de pacientes" <<endl;
         cout << "\t10: Mostrar citas medicas del mes seleccionado" <<endl;
-         cout << "\t11: Mostrar citas medicas del dia y mes seleccionado" <<endl;
+        cout << "\t11: Mostrar citas medicas del dia y mes seleccionado" <<endl;
         cout << "\t12: Eliminar cita medica"<<endl;
         cout << "\t13: Cantidad de pacientes por especialidad"<<endl;
-        cout<<"\t14: Cantidad de doctores por especialidad\n\n"<<endl;
-        
-        cout<<"\t15: Ingresar expediente"<<endl;
-        cout<<"\t16: Mostrar Expediente\n\n"<<endl;
-        cout << "\t17: Salir\n\n" <<endl;
+        cout << "\t14: Cantidad de doctores por especialidad\n\n"<<endl;
+
+        cout << "\t15: Salir\n\n" <<endl;
         
         cout << "\tLa opcion que desea es: ";
         cin >> opcion;
@@ -1645,35 +1643,38 @@ void menuEstandar()
             	break;
             	
             case 8:
-				cout<<"Ingrese la cedula del paciente: "<<endl;
+				cout<<"\tIngrese la cedula del paciente: "<<endl;
 				cin>>idPaciente;
-				cout<<"Ingrese el nombre del pacientel: "<<endl;
+				cout<<"\tIngrese el nombre del pacientel: "<<endl;
 				cin>>nombre;
-				cout<<"Ingrese el primer apellido del paciente: "<<endl;
+				cout<<"\tIngrese el primer apellido del paciente: "<<endl;
 				cin>>apellido1;
-				cout<<"Ingrese el segundo apellido del paciente: "<<endl;
+				cout<<"\tIngrese el segundo apellido del paciente: "<<endl;
 				cin>>apellido2;
-				cout<<"Ingrese el año de la cita: "<<endl;
+				cout<<"\tIngrese el año de la cita: "<<endl;
 				cin>>anno;
-				cout<<"Ingrese el mes de la cita: "<<endl;
+				cout<<"\tIngrese el mes de la cita: "<<endl;
 				cin>>mes;
-				cout<<"Ingrese el dia de la cita: "<<endl;
+				cout<<"\tIngrese el dia de la cita: "<<endl;
 				cin>>dia;
-				cout<<"Ingrese el codigo del doctor asignado: "<<endl;
+				cout<<"\tIngrese el codigo del doctor asignado: ";
 				cin>>inputdoc;
-				cout<<"Ingrese el sintoma del paciente:\n\t\t[1] Gangrena \n\t\t[2] Carie\n\t\t[3] Fractura\n\t\t[4] Depresion\n "<<endl;
+				cout <<"\n\t\t[1] Gangrena \n\t\t[2] Carie\n\t\t[3] Fractura\n\t\t[4] Depresion\n";
+				cout<<"\n\tIngrese el sintoma del paciente: ";
 				cin>>sintomas;
-				cout<<"Ingrese la medicina recetada: "<<endl;
+				cout<<"\tIngrese la medicina recetada: ";
 				cin>>medicina;
-				cout<<"Ingrese el examen asignado: "<<endl;
+				cout<<"\tIngrese el examen asignado: ";
 				cin>>examen;
 				ingresarFinalExpediente(ListE,idPaciente,nombre,apellido1,apellido2,anno,mes,dia,inputdoc,sintomas,medicina,examen);
+				cout << "\n\t"; system("Pause");
 				break;
 				
 				case 9: 
-					cout<<"Ingrese la cedula del paciente"<<endl;
+					cout<<"\n\tIngrese la cedula del paciente"<<endl;
 					cin>>cedula;
 					mostrarExpediente(ListE,cedula);
+					cout << "\n\t"; system("Pause");
 					break;	
             case 10:
 			cout<<"\tDigite el mes que desea ver"<<endl;
@@ -1688,7 +1689,7 @@ void menuEstandar()
 					cout<<"\tDigite el dia que desea ver"<<endl;
 					cin>>dia;
 					contarPacientesDiaMes(ListC,mes,dia);
-						cout << "\n\t"; system("Pause");
+					cout << "\n\t"; system("Pause");
             	break;
             case 12:
 					cout<<"\n\tDigite el id de la cita que desea eliminar"<<endl;
@@ -1709,43 +1710,12 @@ void menuEstandar()
 				contarDoctoresEspecialidad(ListD,inputEspecialidad);
 				cout << "\n\t"; system("Pause");
 				break;
-				
-			case 15:
-				cout<<"Ingrese la cedula del paciente: "<<endl;
-				cin>>idPaciente;
-				cout<<"Ingrese el nombre del paciente: "<<endl;
-				cin>>nombre;
-				cout<<"Ingrese el primer apellido del paciente: "<<endl;
-				cin>>apellido1;
-				cout<<"Ingrese el segundo apellido del paciente: "<<endl;
-				cin>>apellido2;
-				cout<<"Ingrese el año de la cita: "<<endl;
-				cin>>anno;
-				cout<<"Ingrese el mes de la cita: "<<endl;
-				cin>>mes;
-				cout<<"Ingrese el dia de la cita: "<<endl;
-				cin>>dia;
-				cout<<"Ingrese el codigo del doctor asignado: "<<endl;
-				cin>>inputdoc;
-				cout<<"Ingrese el sintoma del paciente:\n\t\t[1] Gangrena \n\t\t[2] Carie\n\t\t[3] Fractura\n\t\t[4] Depresion\n "<<endl;
-				cin>>sintomas;
-				cout<<"Ingrese la medicina recetada: "<<endl;
-				cin>>medicina; 
-				cout<<"Ingrese el examen asignado: "<<endl;
-				cin>>examen;
-				ingresarFinalExpediente(ListE,idPaciente,nombre,apellido1,apellido2,anno,mes,dia,inputdoc,sintomas,medicina,examen);
-				break;
-				
-				case 16: 
-					cout<<"Ingrese la cedula del paciente"<<endl;
-					cin>>cedula;
-					mostrarExpediente(ListE,cedula);
-					break;	
+					
         }
     }
-    while(opcion!=17);
+    while(opcion!=15);
     
-   cout<<"Fin del sistema"<<endl;
+    cout << "\n\tFin del sistema" <<endl;
 }
 
 void menuAdmin()
@@ -1770,16 +1740,16 @@ char tipo;
     ingresarFinalPacienteSinNotf(ListP,"Glen","Mendoza","Cedeño",116632319,7675648,1,"19/2/2021");
     ingresarFinalPacienteSinNotf(ListP,"Andres","Jimenez","Ortiz",118660309,8765443,4,"29/1/2022");
     ingresarFinalPacienteSinNotf(ListP,"Pablo","Gutierrez","Herrera",116660302,7765340,4,"28/3/2021");
-     ingresarFinalPacienteSinNotf(ListP,"Valentina","Meneses","Lopez",12530304,8163349,4,"19/2/2022");
+    ingresarFinalPacienteSinNotf(ListP,"Valentina","Meneses","Lopez",12530304,8163349,4,"19/2/2022");
      
     ingresarFinalDoctorSinNoft(ListD,"Juan","Guadamuz","Fernandez","Dermatologo",1);
 	ingresarFinalDoctorSinNoft(ListD,"Luis","Monge","Abarca","Dentista",2);
     ingresarFinalDoctorSinNoft(ListD,"Rodrigo","Guevara","Hidalgo","Cirujano",3);
-     ingresarFinalDoctorSinNoft(ListD,"Jason","Ortega","Herrera","Cirujano",5);
+    ingresarFinalDoctorSinNoft(ListD,"Jason","Ortega","Herrera","Cirujano",5);
     ingresarFinalDoctorSinNoft(ListD,"Jose","Quiros","Meneses","Psicologo",4);
-     ingresarFinalDoctorSinNoft(ListD,"Gabriella","Quiros","Barrientos","Psicologo",8);
-      ingresarFinalDoctorSinNoft(ListD,"Maria","Chavarria","Herrera","Dentista",6);
-       ingresarFinalDoctorSinNoft(ListD,"Mario","Jimenez","Echeverria","Dermatologo",7);
+    ingresarFinalDoctorSinNoft(ListD,"Gabriella","Quiros","Barrientos","Psicologo",8);
+    ingresarFinalDoctorSinNoft(ListD,"Maria","Chavarria","Herrera","Dentista",6);
+    ingresarFinalDoctorSinNoft(ListD,"Mario","Jimenez","Echeverria","Dermatologo",7);
     
     asignarCitaSinNotf(ListC,1,1,2020,12,10,20,30,1,1);
     asignarCitaSinNotf(ListC,2,2,2021,11,18,22,20,2,116660302);
@@ -1910,14 +1880,14 @@ char tipo;
                       cout << "\n\t"; system("Pause");
             break;
             case 10:
-                      cout<<"Digite la cédula del paciente que desea eliminar"<<endl;
+                      cout<<"\n\tDigite la cédula del paciente que desea eliminar: ";
                     cin>>cedula;
 					eliminarPaciente(ListP,cedula);
 					mostrarPaciente(ListP);
 					 cout << "\n\t"; system("Pause");
             break;
             case 11:
-                      cout<<"Digite el número de cédula del paciente que desea modificar"<<endl;
+                      cout<<"\n\tDigite el número de cédula del paciente que desea modificar: ";
                     cin>>cedula;
                     modificarPaciente(ListP,cedula);
                     cout << "\n\t"; system("Pause");
@@ -1926,8 +1896,7 @@ char tipo;
         }
     }
     while(opcion!=12);
-    menuEstandar();
-    cout << "Fin del sistema" <<endl;
+    cout << "\n\tFin del sistema" <<endl;
 }
 }
 
@@ -1971,8 +1940,8 @@ char tipo;
     //asignarCitaSinNotf(ListC,1,1,2020,12,10,20,30,1,1);
 
     
-  	cout<<"\n\t>>>>>>>>>>>>>>>>>>>>>>>>>>";
-		cout<<"\n\tLogin\t";
+  		cout<<"\n\t>>>>>>>>>>>>>>>>>>>>>>>>>>";
+		cout<<"\n\t\tLOGIN\t";
 		cout<<"\n\t<<<<<<<<<<<<<<<<<<<<<<<<<<\n\n";
 		
         cout << "\t1: Ingresar como Administrador" <<endl;
@@ -1996,7 +1965,7 @@ char tipo;
 			}
 		}
 		while(opcion!=3);
-	cout << "Fin del sistema" <<endl;	
+    cout << "\n\tFin del sistema" <<endl;	
 	
   
     
