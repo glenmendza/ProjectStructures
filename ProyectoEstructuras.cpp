@@ -765,16 +765,16 @@ void modificarDoctor(listaD &cabeza,int codigo)
             cout<<"\tCodigo: "<<aux->codigoD<<endl;
             
             cout<<" "<<endl;
-            cout<<"------------------------"<<endl;
-            cout<<"\tNuevo nombre: "<<endl;
+            cout<<"\t------------------------"<<endl;
+            cout<<"\tNuevo nombre: ";
             cin>>nombren;         
-            cout<<"\tNuevo primer apellido: "<<endl;
+            cout<<"\tNuevo primer apellido: ";
             cin>>apellido1n;
-            cout<<"\tNuevo segundo apellido: "<<endl;
+            cout<<"\tNuevo segundo apellido: ";
             cin>>apellido2n;
-            cout<<"\tNueva especialidad: "<<endl;
+            cout<<"\tNueva especialidad: ";
             cin>>especialidadn;
-            cout<<"------------------------"<<endl;
+            cout<<"\t------------------------"<<endl;
             cout<<" "<<endl;
              
             cout<<"\n\tDesea guardar los cambios?\n 1)SI \n 2)NO"<<endl;
@@ -1031,13 +1031,13 @@ void printStrongNess(string& input,int& check)
     }
  
     // Strength of password
-    cout << "\n\n\tComplejidad de contrasena: ";
+    cout << "\n\n\tComplejidad de contraseña: ";
     if (hasLower && hasUpper && hasDigit &&
         specialChar && (n >= 8)){
-        cout << "\n\tLa contrasena si cumple con los requisitos, puede continuar con el registro\n" <<  endl;
+        cout << "\n\tLa contraseña si cumple con los requisitos, puede continuar con el registro\n" <<  endl;
         check = 1;
     } else {
-        cout<< "\n\tLa contrasena no cumple con los requisitos, debe ser mas compleja\n"<<endl;
+        cout<< "\n\tLa contraseña no cumple con los requisitos, debe ser mas compleja\n"<<endl;
         check = 0;
     }
 };
