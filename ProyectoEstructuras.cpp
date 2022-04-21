@@ -541,8 +541,10 @@ void mostrarDoctor (listaD cabeza)
     else
     {
         aux=cabeza;
-        do
+        do 
         {
+        		
+        
         	cout<<"\n\t------------------------"<<endl;
             cout<<"\tNombre: "<<aux->nombre<<endl;
             cout<<"\tPrimer apellido: "<<aux->apellido1<<endl;
@@ -560,7 +562,7 @@ void mostrarDoctor (listaD cabeza)
     		cout<<"\n\tDoctores en total: "<<contador<<"\n\n";
 }
 
-void buscarSintomaPaciente (listaP cabeza, int ced )
+/*void buscarSintomaPaciente (listaP cabeza, int ced )
 {
 	int contador = 0;
     listaP auxP;
@@ -579,8 +581,8 @@ void buscarSintomaPaciente (listaP cabeza, int ced )
 	while(auxP->cedula!=ced)
 	auxP->sintoma==sintoma2;
 	}
-} 
-
+}*/ 
+/*
 void mostrarDoctorEspecialidad(listaD cabeza)
 {
 
@@ -599,7 +601,7 @@ void mostrarDoctorEspecialidad(listaD cabeza)
         
     }
     		
-}
+}*/ 
 
 void eliminarDoctor(listaD &cabeza,int codigo = 0)
 {
@@ -643,6 +645,39 @@ void eliminarDoctor(listaD &cabeza,int codigo = 0)
 	}	
 }
 
+int buscarSintoma(listaP cabeza, int cedulaRet)
+{
+	int sintomaRetorno=0;
+	listaP aux;
+	
+	if (cabeza==NULL)
+    cout<<"\n\tLista vacia"<<endl;
+    else
+	{
+        aux=cabeza;
+        do
+        {
+        	if(aux->cedula==cedulaRet && aux==cabeza)
+				{
+		    		cout<<"\tSintoma 1: "<<aux->sintomas<<endl;
+					sintomaRetorno=aux->sintomas;
+				}
+			else
+			{
+				if(aux->cedula==cedulaRet && aux!=cabeza)
+				{
+					cout<<"\tSintoma 2: "<<aux->sintomas<<endl;	
+					sintomaRetorno=aux->sintomas;
+
+				}
+
+			}            
+			aux=aux->siguiente;
+        }
+		while(aux!=cabeza); 
+    }
+    return sintomaRetorno;
+}
 
 void modificarDoctor(listaD &cabeza,int codigo)
 {
@@ -1077,7 +1112,7 @@ void asignarCita(listaC &cabeza,int idCita, int sintomas1,int anno,int mes,int d
         cout << "\t4: Eliminar paciente\n\n" <<endl;
         
         cout << "\t5: Asignar una cita medica" <<endl;
-        cout << "\t6: Modificar una cita medica" <<endl;
+        cout << "\t6: Modificar una cita medica TEST" <<endl;
         cout << "\t7: Mostrar citas medica\n\n" <<endl;
         
         cout << "\t8: Salir\n\n" <<endl;
@@ -1156,6 +1191,7 @@ void asignarCita(listaC &cabeza,int idCita, int sintomas1,int anno,int mes,int d
             break;
             case 6:
                     cout<<"por hacer"<<endl;
+                    //buscarSintoma(ListP,inputpac);
             break;
             case 7:
                 	mostrarCitas(ListC);
