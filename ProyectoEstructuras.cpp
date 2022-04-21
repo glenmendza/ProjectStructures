@@ -399,30 +399,30 @@ void modificarPaciente(listaP &cabeza,int cedula)
         {
         	if(aux->cedula==cedula && aux==cabeza)
 			{
-		    cout<<"Nombre Actual: "<<aux->nombre<<endl;
-            cout<<"Primer apellido actual: "<<aux->apellido1<<endl;
-            cout<<"Segundo apellido actual: "<<aux->apellido2<<endl;
-            cout<<"Numero de telefono actual: "<<aux->telefono<<endl;
-            cout<<"Sintomas actuales: "<<aux->sintomas<<endl;
-            cout<<"Fecha de ingreso actual: "<<aux->fechaIngreso<<endl;
+		    cout<<"\tNombre Actual: "<<aux->nombre<<endl;
+            cout<<"\tPrimer apellido actual: "<<aux->apellido1<<endl;
+            cout<<"\tSegundo apellido actual: "<<aux->apellido2<<endl;
+            cout<<"\tNumero de telefono actual: "<<aux->telefono<<endl;
+            cout<<"\tSintomas actuales: "<<aux->sintomas<<endl;
+            cout<<"\tFecha de ingreso actual: "<<aux->fechaIngreso<<endl;
             cout<<" "<<endl;
-            cout<<"------------------------"<<endl;
-            cout<<"Nuevo nombre: "<<endl;
+            cout<<"\t------------------------"<<endl;
+            cout<<"\tNuevo nombre: "<<endl;
             cin>>nombren;         
-            cout<<"Nuevo primer apellido: "<<endl;
+            cout<<"\tNuevo primer apellido: "<<endl;
             cin>>apellido1n;
-            cout<<"Nuevo segundo apellido: "<<endl;
+            cout<<"\tNuevo segundo apellido: "<<endl;
             cin>>apellido2n;
-            cout<<"Nuevo numero de telefono: "<<endl;
+            cout<<"\tNuevo numero de telefono: "<<endl;
             cin>>telefonon;
-            cout<<"Nuevos sintomas: "<<endl;
+            cout<<"\tNuevos sintomas: "<<endl;
             cin>>sintomasn;
-            cout<<"Nueva fecha de ingreso: "<<endl;
+            cout<<"\tNueva fecha de ingreso: "<<endl;
             cin>>fechan;
-            cout<<"------------------------"<<endl;
+            cout<<"\t------------------------"<<endl;
             cout<<" "<<endl;
              
-            cout<<"Desea guardar los cambios?\n 1)SI \n 2)NO"<<endl;
+            cout<<"\tDesea guardar los cambios?\n 1)SI \n 2)NO"<<endl;
             cin>>opcion;
              
             if(opcion==1)  {
@@ -436,13 +436,13 @@ void modificarPaciente(listaP &cabeza,int cedula)
             
             
             cout<<" "<<endl;
-            cout<<"------------------------"<<endl;
-            cout<<"Nuevo nombre modificado: "<<nombren<<endl;
-            cout<<"Nuevo primer apellido modificado: "<<apellido1n<<endl;
-            cout<<"Nuevo segundo apellido modificado: "<<apellido2n<<endl;
-            cout<<"Nuevo telefono modificado: "<<telefonon<<endl;
-            cout<<"Nuevos sintomas modificados: "<<sintomasn<<endl;
-            cout<<"Nueva fecha de ingreso modificada: "<<fechan<<endl;
+            cout<<"\t------------------------"<<endl;
+            cout<<"\tNuevo nombre modificado: "<<nombren<<endl;
+            cout<<"\tNuevo primer apellido modificado: "<<apellido1n<<endl;
+            cout<<"\tNuevo segundo apellido modificado: "<<apellido2n<<endl;
+            cout<<"\tNuevo telefono modificado: "<<telefonon<<endl;
+            cout<<"\tNuevos sintomas modificados: "<<sintomasn<<endl;
+            cout<<"\tNueva fecha de ingreso modificada: "<<fechan<<endl;
 
             cout<<"------------------------"<<endl;
             cout<<" "<<endl;
@@ -459,27 +459,27 @@ void modificarPaciente(listaP &cabeza,int cedula)
 			{
 				if(aux->cedula==cedula && aux!=cabeza)
 				{
-		cout<<"Nombre Actual: "<<aux->nombre<<endl;
-            cout<<"Primer apellido actual: "<<aux->apellido1<<endl;
-            cout<<"Segundo apellido actual: "<<aux->apellido2<<endl;
-            cout<<"Numero de telefono actual: "<<aux->telefono<<endl;
-            cout<<"Sintomas actuales: "<<aux->sintomas<<endl;
-            cout<<"Fecha de ingreso actual: "<<aux->fechaIngreso<<endl;
+		cout<<"\tNombre Actual: "<<aux->nombre<<endl;
+            cout<<"\tPrimer apellido actual: "<<aux->apellido1<<endl;
+            cout<<"\tSegundo apellido actual: "<<aux->apellido2<<endl;
+            cout<<"\tNumero de telefono actual: "<<aux->telefono<<endl;
+            cout<<"\tSintomas actuales: "<<aux->sintomas<<endl;
+            cout<<"\tFecha de ingreso actual: "<<aux->fechaIngreso<<endl;
             cout<<" "<<endl;
-            cout<<"------------------------"<<endl;
-            cout<<"Nuevo nombre: "<<endl;
+            cout<<"\t------------------------"<<endl;
+            cout<<"\tNuevo nombre: "<<endl;
             cin>>nombren;         
-            cout<<"Nuevo primer apellido: "<<endl;
+            cout<<"\tNuevo primer apellido: "<<endl;
             cin>>apellido1n;
-            cout<<"Nuevo segundo apellido: "<<endl;
+            cout<<"\tNuevo segundo apellido: "<<endl;
             cin>>apellido2n;
-            cout<<"Nuevo numero de telefono: "<<endl;
+            cout<<"\tNuevo numero de telefono: "<<endl;
             cin>>telefonon;
-            cout<<"Nuevos sintomas: "<<endl;
+            cout<<"\tNuevos sintomas: "<<endl;
             cin>>sintomasn;
-            cout<<"Nueva fecha de ingreso: "<<endl;
+            cout<<"\tNueva fecha de ingreso: "<<endl;
             cin>>fechan;
-            cout<<"------------------------"<<endl;
+            cout<<"\t------------------------"<<endl;
             cout<<" "<<endl;
              
             cout<<"\n\tDesea guardar los cambios?\n 1)SI \n 2)NO"<<endl;
@@ -496,15 +496,15 @@ void modificarPaciente(listaP &cabeza,int cedula)
             
             
             cout<<" "<<endl;
-            cout<<"------------------------"<<endl;
-            cout<<"Nuevo nombre modificado: "<<nombren<<endl;
-            cout<<"Nuevo primer apellido modificado: "<<apellido1n<<endl;
-            cout<<"Nuevo segundo apellido modificado: "<<apellido2n<<endl;
-            cout<<"Nuevo telefono modificado: "<<telefonon<<endl;
-            cout<<"Nuevos sintomas modificados: "<<sintomasn<<endl;
-            cout<<"Nueva fecha de ingreso modificada: "<<fechan<<endl;
+            cout<<"\t------------------------"<<endl;
+            cout<<"\tNuevo nombre modificado: "<<nombren<<endl;
+            cout<<"\tNuevo primer apellido modificado: "<<apellido1n<<endl;
+            cout<<"\tNuevo segundo apellido modificado: "<<apellido2n<<endl;
+            cout<<"\tNuevo telefono modificado: "<<telefonon<<endl;
+            cout<<"\tNuevos sintomas modificados: "<<sintomasn<<endl;
+            cout<<"\tNueva fecha de ingreso modificada: "<<fechan<<endl;
 
-            cout<<"------------------------"<<endl;
+            cout<<"\t------------------------"<<endl;
             cout<<" "<<endl;
 		    
 		    }
@@ -618,21 +618,21 @@ void modificarDoctor(listaD &cabeza,int codigo)
         {
         	if(aux->codigoD==codigo && aux==cabeza)
 			{
-		    cout<<"Nombre Actual: "<<aux->nombre<<endl;
-            cout<<"Primer apellido actual: "<<aux->apellido1<<endl;
-            cout<<"Segundo apellido actual: "<<aux->apellido2<<endl;
-            cout<<"Especialidad actual: "<<aux->especialidad<<endl;
-            cout<<"Codigo: "<<aux->codigoD<<endl;
+		    cout<<"\tNombre Actual: "<<aux->nombre<<endl;
+            cout<<"\tPrimer apellido actual: "<<aux->apellido1<<endl;
+            cout<<"\tSegundo apellido actual: "<<aux->apellido2<<endl;
+            cout<<"\tEspecialidad actual: "<<aux->especialidad<<endl;
+            cout<<"\tCodigo: "<<aux->codigoD<<endl;
             
             cout<<" "<<endl;
             cout<<"------------------------"<<endl;
-            cout<<"Nuevo nombre: "<<endl;
+            cout<<"\tNuevo nombre: "<<endl;
             cin>>nombren;         
-            cout<<"Nuevo primer apellido: "<<endl;
+            cout<<"\tNuevo primer apellido: "<<endl;
             cin>>apellido1n;
-            cout<<"Nuevo segundo apellido: "<<endl;
+            cout<<"\tNuevo segundo apellido: "<<endl;
             cin>>apellido2n;
-            cout<<"Nueva especialidad: "<<endl;
+            cout<<"\tNueva especialidad: "<<endl;
             cin>>especialidadn;
             cout<<"------------------------"<<endl;
             cout<<" "<<endl;
@@ -650,10 +650,10 @@ void modificarDoctor(listaD &cabeza,int codigo)
             
             cout<<" "<<endl;
             cout<<"------------------------"<<endl;
-            cout<<"Nuevo nombre modificado: "<<nombren<<endl;
-            cout<<"Nuevo primer apellido modificado: "<<apellido1n<<endl;
-            cout<<"Nuevo segundo apellido modificado: "<<apellido2n<<endl;
-            cout<<"Nuevo especialidad modificado: "<<especialidadn<<endl;
+            cout<<"\tNuevo nombre modificado: "<<nombren<<endl;
+            cout<<"\tNuevo primer apellido modificado: "<<apellido1n<<endl;
+            cout<<"\tNuevo segundo apellido modificado: "<<apellido2n<<endl;
+            cout<<"\tNuevo especialidad modificado: "<<especialidadn<<endl;
             cout<<"------------------------"<<endl;
             cout<<" "<<endl;
 		    }
@@ -669,20 +669,20 @@ void modificarDoctor(listaD &cabeza,int codigo)
 			{
 				if(aux->codigoD==codigo && aux!=cabeza)
 				{
-			cout<<"Nombre Actual: "<<aux->nombre<<endl;
-            cout<<"Primer apellido actual: "<<aux->apellido1<<endl;
-            cout<<"Segundo apellido actual: "<<aux->apellido2<<endl;
-            cout<<"Especialidad actual: "<<aux->especialidad<<endl;
-            cout<<"Codigo: "<<aux->codigoD<<endl;
+			cout<<"\tNombre Actual: "<<aux->nombre<<endl;
+            cout<<"\tPrimer apellido actual: "<<aux->apellido1<<endl;
+            cout<<"\tSegundo apellido actual: "<<aux->apellido2<<endl;
+            cout<<"\tEspecialidad actual: "<<aux->especialidad<<endl;
+            cout<<"\tCodigo: "<<aux->codigoD<<endl;
             
             cout<<"------------------------"<<endl;
-            cout<<"Nuevo nombre: "<<endl;
+            cout<<"\tNuevo nombre: "<<endl;
             cin>>nombren;         
-            cout<<"Nuevo primer apellido: "<<endl;
+            cout<<"\tNuevo primer apellido: "<<endl;
             cin>>apellido1n;
-            cout<<"Nuevo segundo apellido: "<<endl;
+            cout<<"\tNuevo segundo apellido: "<<endl;
             cin>>apellido2n;
-            cout<<"Nueva especialidad: "<<endl;
+            cout<<"\tNueva especialidad: "<<endl;
             cin>>especialidadn;
              
              cout<<"\n\tDesea guardar los cambios?\n 1)SI \n 2)NO"<<endl;
@@ -699,11 +699,11 @@ void modificarDoctor(listaD &cabeza,int codigo)
             
             cout<<" "<<endl;
             cout<<"------------------------"<<endl;
-            cout<<"Nuevo nombre modificado: "<<nombren<<endl;
-            cout<<"Nuevo primer apellido modificado: "<<apellido1n<<endl;
-            cout<<"Nuevo segundo apellido modificado: "<<apellido2n<<endl;
-            cout<<"Nuevo especialidad modificado: "<<especialidadn<<endl;
-            cout<<"------------------------"<<endl;
+            cout<<"\tNuevo nombre modificado: "<<nombren<<endl;
+            cout<<"\tNuevo primer apellido modificado: "<<apellido1n<<endl;
+            cout<<"\tNuevo segundo apellido modificado: "<<apellido2n<<endl;
+            cout<<"\tNuevo especialidad modificado: "<<especialidadn<<endl;
+            cout<<"\t------------------------"<<endl;
             cout<<" "<<endl;
             
 		    }
@@ -738,15 +738,15 @@ void modificarEstado(lista &cabeza,int codigoUsuario)
         {
         	if(aux->codigo==codigoUsuario && aux==cabeza)
 			{
-			cout<<"Codigo del usuario: "<<aux->codigo<<endl;
-			cout<<"Nombre del usuario: "<<aux->nombre<<" "<<aux->apellido1<<endl;
-			cout<<"Estado actual: "<<aux->estado<<endl;
+			cout<<"\tCodigo del usuario: "<<aux->codigo<<endl;
+			cout<<"\tNombre del usuario: "<<aux->nombre<<" "<<aux->apellido1<<endl;
+			cout<<"\tEstado actual: "<<aux->estado<<endl;
 			
 			cout<<" "<<endl;
-            cout<<"------------------------"<<endl;
-            cout<<"Nuevo estado:\n(activo o inactivo) "<<endl;
+            cout<<"\t------------------------"<<endl;
+            cout<<"\tNuevo estado:\n(activo o inactivo) "<<endl;
             cin>>estadon;         
-            cout<<"------------------------"<<endl;
+            cout<<"\t------------------------"<<endl;
             cout<<" "<<endl;
              
             cout<<"\n\tDesea guardar los cambios?\n 1)SI \n 2)NO"<<endl;
@@ -757,9 +757,9 @@ void modificarEstado(lista &cabeza,int codigoUsuario)
 			aux->estado=estadon;
 
             cout<<" "<<endl;
-            cout<<"------------------------"<<endl;
-            cout<<"Nuevo estado modificado: "<<estadon<<endl;
-            cout<<"------------------------"<<endl;
+            cout<<"\t------------------------"<<endl;
+            cout<<"\tNuevo estado modificado: "<<estadon<<endl;
+            cout<<"\t------------------------"<<endl;
             cout<<" "<<endl;
 		    }
 		    else if(opcion==2)
@@ -777,16 +777,16 @@ void modificarEstado(lista &cabeza,int codigoUsuario)
 				{
 					
 			cout<<" "<<endl;
-			cout<<"Codigo del usuario: "<<aux->codigo<<endl;
-			cout<<"Nombre del usuario: "<<aux->nombre<<" "<<aux->apellido1<<endl;
-			cout<<"Estado actual: "<<aux->estado<<endl;
+			cout<<"\tCodigo del usuario: "<<aux->codigo<<endl;
+			cout<<"\tNombre del usuario: "<<aux->nombre<<" "<<aux->apellido1<<endl;
+			cout<<"\tEstado actual: "<<aux->estado<<endl;
 			cout<<" "<<endl;
 			
 			cout<<" "<<endl;
-            cout<<"------------------------"<<endl;
-            cout<<"Nuevo estado:\n(activo o inactivo) "<<endl;
+            cout<<"\t------------------------"<<endl;
+            cout<<"\tNuevo estado:\n(activo o inactivo) "<<endl;
             cin>>estadon;         
-            cout<<"------------------------"<<endl;
+            cout<<"\t------------------------"<<endl;
             cout<<" "<<endl;
              
              cout<<"\n\tDesea guardar los cambios?\n 1)SI \n 2)NO"<<endl;
@@ -1028,14 +1028,18 @@ void asignarCita(listaC &cabeza,int idCita, int sintomas1,int anno,int mes,int d
 		cout<<"\n\t>>>>>>>>>>>>>>>>>>>>>>>>>>";
 		cout<<"\n\tMENU PRINCIPAL ESTANDAR\t";
 		cout<<"\n\t<<<<<<<<<<<<<<<<<<<<<<<<<<\n\n";
+		
         cout << "\t1: Ingresar un nuevo paciente" <<endl;
         cout << "\t2: Mostrar pacientes" <<endl;
         cout << "\t3: Modificar paciente" <<endl;
         cout << "\t4: Eliminar paciente\n\n" <<endl;
+        
         cout << "\t5: Asignar una cita medica" <<endl;
         cout << "\t6: Modificar una cita medica" <<endl;
-        cout << "\t7: Eliminar una cita medica\n\n" <<endl;
+        cout << "\t7: Mostrar citas medica\n\n" <<endl;
+        
         cout << "\t8: Salir\n\n" <<endl;
+        
         cout << "\tLa opcion que desea es: ";
         cin >> opcion;
         switch (opcion)
@@ -1062,15 +1066,17 @@ void asignarCita(listaC &cabeza,int idCita, int sintomas1,int anno,int mes,int d
             break;
             case 2: 
                   mostrarPaciente(ListP);
+                  cout << "\n\t"; system("Pause");
             break;
             case 3: 
                      
-                    cout<<"Digite el numero de cedula del paciente que desea modificar"<<endl;
+                    cout<<"\tDigite el numero de cedula del paciente que desea modificar: ";
                     cin>>cedula;
                     modificarPaciente(ListP,cedula);
+                    cout << "\n\t"; system("Pause");
             break;
             case 4:
-                    cout<<"Digite la cedula del paciente que desea eliminar"<<endl;
+                    cout<<"\tDigite la cedula del paciente que desea eliminar: ";
                     cin>>cedula;
 					eliminarPaciente(ListP,cedula);
 					mostrarPaciente(ListP);
@@ -1101,14 +1107,14 @@ void asignarCita(listaC &cabeza,int idCita, int sintomas1,int anno,int mes,int d
                     idCita=rand()%100;
                     
                     asignarCita(ListC,idCita,inputsintomas1,inputanno,inputmes,inputdia,inputhora,inputminutos,inputdoc,inputpac);
+                    cout << "\n\t"; system("Pause");
             break;
             case 6:
                     cout<<"por hacer"<<endl;
             break;
             case 7:
-                	cout<<"por hacer"<<endl;
                 	mostrarCitas(ListC);
-                	
+					cout << "\n\t"; system("Pause");	
             break;
 
         }
