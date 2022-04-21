@@ -347,7 +347,7 @@ void ingresarFinalDoctor(listaD &cabeza,string nombre, string apellido1,string a
         cabeza=nuevo;
         cabeza->siguiente=cabeza;
         cabeza->anterior=cabeza;
-        cout<<"\n\tDoctor con el codig o"<<codigoD<<" fue agregado"<<endl;
+        cout<<"\n\tDoctor con el codigo "<<codigoD<<" fue agregado"<<endl;
     }
 
  
@@ -386,10 +386,6 @@ void ingresarFinalDoctorSinNoft(listaD &cabeza,string nombre, string apellido1,s
     }
 }
 
-
-
-
-
 void mostrar (lista cabeza)
 {
     lista aux;
@@ -409,7 +405,7 @@ void mostrar (lista cabeza)
             cout<<"\tContrasenna: "<<aux->contrasenna<<endl;
             cout<<"\tEstado de la cuenta: "<<aux->estado<<endl;
             cout<<"\t------------------------\n"<<endl;
-           aux=aux->siguiente;
+            aux=aux->siguiente;
 
         } 
         while (aux!=cabeza);
@@ -447,7 +443,7 @@ void mostrarPaciente (listaP cabeza)
             cout<<"\tTelefono: "<<aux->telefono<<endl;
             cout<<"\tSintomas: "<<defsinto<<" ["<<aux->sintomas<<"] "<<endl;
             cout<<"\tFecha de ingreso: "<<aux->fechaIngreso<<endl;
-            cout<<"\t------------------------\n\n"<<endl;
+            cout<<"\t------------------------\n"<<endl;
 			aux=aux->siguiente;
 
         } 
@@ -945,9 +941,9 @@ void modificarEstado(lista &cabeza,int codigoUsuario)
 			aux->estado=estadon;
             
             cout<<" "<<endl;
-            cout<<"------------------------"<<endl;
-            cout<<"Nuevo estado modificado: "<<estadon<<endl;
-            cout<<"------------------------"<<endl;
+            cout<<"\t------------------------"<<endl;
+            cout<<"\tNuevo estado modificado: "<<estadon<<endl;
+            cout<<"\t------------------------"<<endl;
             cout<<" "<<endl;
             
 		    }
@@ -1038,10 +1034,10 @@ void printStrongNess(string& input,int& check)
     cout << "\n\n\tComplejidad de contrasena: ";
     if (hasLower && hasUpper && hasDigit &&
         specialChar && (n >= 8)){
-        cout << "\n\tLa contrasena si cumple con los requisitos, puede continuar con el registro\n\n" <<  endl;
+        cout << "\n\tLa contrasena si cumple con los requisitos, puede continuar con el registro\n" <<  endl;
         check = 1;
     } else {
-        cout<< "\n\tLa contrasena no cumple con los requisitos, debe ser mas compleja\n\n"<<endl;
+        cout<< "\n\tLa contrasena no cumple con los requisitos, debe ser mas compleja\n"<<endl;
         check = 0;
     }
 };
@@ -1183,7 +1179,7 @@ void modificarCita(listaC &cabeza,int idCit)
             cout<<"\tMinutos actuales: "<<aux->minutos<<endl;
             
             cout<<" "<<endl;
-            cout<<"------------------------"<<endl;
+            cout<<"\t------------------------"<<endl;
             cout<<"\tNuevo año: "<<endl;
             cin>>annoN;         
             cout<<"\tNuevo mes: "<<endl;
@@ -1192,7 +1188,7 @@ void modificarCita(listaC &cabeza,int idCit)
             cin>>diaN;
             cout<<"\tNueva hora: "<<endl;
             cin>>horaN;
-            cout<<"------------------------"<<endl;
+            cout<<"\t------------------------"<<endl;
             cout<<" "<<endl;
              
             cout<<"\n\tDesea guardar los cambios?\n 1)SI \n 2)NO"<<endl;
@@ -1207,12 +1203,12 @@ void modificarCita(listaC &cabeza,int idCit)
             
             
             cout<<" "<<endl;
-            cout<<"------------------------"<<endl;
+            cout<<"\t------------------------"<<endl;
             cout<<"\tNuevo año modificado: "<<annoN<<endl;
             cout<<"\tNuevo mes modificado: "<<mesN<<endl;
             cout<<"\tNuevo día modificado: "<<diaN<<endl;
             cout<<"\tNueva hora modificada: "<<horaN<<endl;
-            cout<<"------------------------"<<endl;
+            cout<<"\t------------------------"<<endl;
             cout<<" "<<endl;
 		    }
 		    else if(opcion==2)
@@ -1234,7 +1230,7 @@ void modificarCita(listaC &cabeza,int idCit)
             cout<<"\tMinutos actuales: "<<aux->minutos<<endl;
             
             cout<<" "<<endl;
-            cout<<"------------------------"<<endl;
+            cout<<"\t------------------------"<<endl;
             cout<<"\tNuevo año: "<<endl;
             cin>>annoN;         
             cout<<"\tNuevo mes: "<<endl;
@@ -1243,7 +1239,7 @@ void modificarCita(listaC &cabeza,int idCit)
             cin>>diaN;
             cout<<"\tNueva hora: "<<endl;
             cin>>horaN;
-            cout<<"------------------------"<<endl;
+            cout<<"\t------------------------"<<endl;
             cout<<" "<<endl;
              
             cout<<"\n\tDesea guardar los cambios?\n 1)SI \n 2)NO"<<endl;
@@ -1258,12 +1254,12 @@ void modificarCita(listaC &cabeza,int idCit)
             
             
             cout<<" "<<endl;
-            cout<<"------------------------"<<endl;
+            cout<<"\t------------------------"<<endl;
             cout<<"\tNuevo año modificado: "<<annoN<<endl;
             cout<<"\tNuevo mes modificado: "<<mesN<<endl;
             cout<<"\tNuevo día modificado: "<<diaN<<endl;
             cout<<"\tNueva hora modificada: "<<horaN<<endl;
-            cout<<"------------------------"<<endl;
+            cout<<"\t------------------------"<<endl;
             cout<<" "<<endl;
 		    }
 		    else if(opcion==2)
@@ -1398,7 +1394,7 @@ aux=aux->siguiente;
         while (aux!=cabeza);
         
     }
-cout<<"Cantidad de citas: "<<contador<<endl;
+cout<<"\n\tCantidad de citas: "<<contador<<endl;
 }
 
 void contarDoctoresEspecialidad(listaD cabeza,string espec)
@@ -1423,7 +1419,7 @@ aux=aux->siguiente;
         while (aux!=cabeza);
         
     }
-cout<<"La cantidad de doctores es: "<<contador<<endl;
+cout<<"\n\tLa cantidad de doctores es: "<<contador<<endl;
 }
 
 void contarPacientesEspecialidad(listaC cabeza){
@@ -1542,16 +1538,16 @@ void menuEstandar()
 		cout<<"\n\tMENU PRINCIPAL ESTANDAR\t";
 		cout<<"\n\t<<<<<<<<<<<<<<<<<<<<<<<<<<\n\n";
 		
-        cout << "\t1: Ingresar un nuevo paciente" <<endl;
-        cout << "\t2: Mostrar pacientes" <<endl;
-        cout << "\t3: Modificar paciente" <<endl;
-        cout << "\t4: Eliminar paciente\n\n" <<endl;
+        cout << "\t	1: Ingresar un nuevo paciente" <<endl;
+        cout << "\t	2: Mostrar pacientes" <<endl;
+        cout << "\t	3: Modificar paciente" <<endl;
+        cout << "\t	4: Eliminar paciente\n\n" <<endl;
         
-        cout << "\t5: Asignar una cita medica" <<endl;
-        cout << "\t6: Modificar una cita medica" <<endl;
-        cout << "\t7: Mostrar citas medicas" <<endl;
-        cout << "\t8: Ingresar expediente" <<endl;
-        cout << "\t9: Mostrar expedientes de pacientes" <<endl;
+        cout << "\t	5: Asignar una cita medica" <<endl;
+        cout << "\t	6: Modificar una cita medica" <<endl;
+        cout << "\t	7: Mostrar citas medicas" <<endl;
+        cout << "\t	8: Ingresar expediente" <<endl;
+        cout << "\t	9: Mostrar expedientes de pacientes" <<endl;
         cout << "\t10: Mostrar citas medicas del mes seleccionado" <<endl;
         cout << "\t11: Mostrar citas medicas del dia y mes seleccionado" <<endl;
         cout << "\t12: Eliminar cita medica"<<endl;
@@ -1643,7 +1639,7 @@ void menuEstandar()
             	break;
             	
             case 8:
-				cout<<"\tIngrese la cedula del paciente: "<<endl;
+				cout<<"\n\tIngrese la cedula del paciente: "<<endl;
 				cin>>idPaciente;
 				cout<<"\tIngrese el nombre del pacientel: "<<endl;
 				cin>>nombre;
@@ -1730,14 +1726,14 @@ char tipo;
     listaD ListD=NULL;
     listaC ListC=NULL;
     
-     ingresarFinalUsuariosSinNotf(List,"Valeria","Soto","Corrales",703210563,'A',"Vales","Vale123!","inactivo");
+    ingresarFinalUsuariosSinNotf(List,"Valeria","Soto","Corrales",703210563,'A',"Vales","Vale123!","inactivo");
     ingresarFinalUsuariosSinNotf(List,"Diego","Colorado","Murillo",708910891,'E',"diegoma","Diego123!","activo");
     ingresarFinalPacienteSinNotf(ListP,"Carolina","Chinchilla","Solis",702360763,87671212,1,"02/6/2022");
     ingresarFinalPacienteSinNotf(ListP,"Maria","Bonilla","Campos",701580214,61237812,2,"10/5/2022");
     ingresarFinalPacienteSinNotf(ListP,"Juan","Ramirez","Castillo",104580214,71247310,4,"16/4/2022");
     ingresarFinalPacienteSinNotf(ListP,"Haziel","Lopez","Rodriguez",117890720,8654676,2,"12/1/2021");
     ingresarFinalPacienteSinNotf(ListP,"Adrian","Tenorio","Ruiz",117660300,6765748,3,"3/2/2022");
-    ingresarFinalPacienteSinNotf(ListP,"Glen","Mendoza","Cedeño",116632319,7675648,1,"19/2/2021");
+    ingresarFinalPacienteSinNotf(ListP,"Glen","Mendoza","Cedeño",703040356,72068064,1,"19/2/2021");
     ingresarFinalPacienteSinNotf(ListP,"Andres","Jimenez","Ortiz",118660309,8765443,4,"29/1/2022");
     ingresarFinalPacienteSinNotf(ListP,"Pablo","Gutierrez","Herrera",116660302,7765340,4,"28/3/2021");
     ingresarFinalPacienteSinNotf(ListP,"Valentina","Meneses","Lopez",12530304,8163349,4,"19/2/2022");
