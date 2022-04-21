@@ -1538,16 +1538,16 @@ void menuEstandar()
 		cout<<"\n\tMENU PRINCIPAL ESTANDAR\t";
 		cout<<"\n\t<<<<<<<<<<<<<<<<<<<<<<<<<<\n\n";
 		
-        cout << "\t	1: Ingresar un nuevo paciente" <<endl;
-        cout << "\t	2: Mostrar pacientes" <<endl;
-        cout << "\t	3: Modificar paciente" <<endl;
-        cout << "\t	4: Eliminar paciente\n\n" <<endl;
+        cout << "\t1 : Ingresar un nuevo paciente" <<endl;
+        cout << "\t2 : Mostrar pacientes" <<endl;
+        cout << "\t3 : Modificar paciente" <<endl;
+        cout << "\t4 : Eliminar paciente\n\n" <<endl;
         
-        cout << "\t	5: Asignar una cita medica" <<endl;
-        cout << "\t	6: Modificar una cita medica" <<endl;
-        cout << "\t	7: Mostrar citas medicas" <<endl;
-        cout << "\t	8: Ingresar expediente" <<endl;
-        cout << "\t	9: Mostrar expedientes de pacientes" <<endl;
+        cout << "\t5 : Asignar una cita medica" <<endl;
+        cout << "\t6 : Modificar una cita medica" <<endl;
+        cout << "\t7 : Mostrar citas medicas" <<endl;
+        cout << "\t8 : Ingresar expediente" <<endl;
+        cout << "\t9 : Mostrar expedientes de pacientes" <<endl;
         cout << "\t10: Mostrar citas medicas del mes seleccionado" <<endl;
         cout << "\t11: Mostrar citas medicas del dia y mes seleccionado" <<endl;
         cout << "\t12: Eliminar cita medica"<<endl;
