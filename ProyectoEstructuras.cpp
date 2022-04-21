@@ -52,8 +52,6 @@ typedef struct nodoDoctor *listaD;
 
 struct nodoCita{
 	
-	//int codigoDoctorCita;
-	//int cedulaPacienteCita;
 	int idCita;
 	int sintomas1;
 	int anno;
@@ -197,6 +195,7 @@ void ingresarFinalPaciente(listaP &cabeza,string nombre, string apellido1,string
         cabeza->siguiente=cabeza;
         cabeza->anterior=cabeza;
         cout<<"\n\tPaciente "<<nombre<<" agregado"<<endl;
+        cout << "\n\t"; system("Pause");
     }
 
  
@@ -207,7 +206,8 @@ void ingresarFinalPaciente(listaP &cabeza,string nombre, string apellido1,string
 		cabeza->anterior->siguiente=nuevo;
 		cabeza->anterior=nuevo;
 		cabeza=nuevo;
-    cout<<"\n\tPaciente "<<nombre<<" agregado"<<endl;
+    	cout<<"\n\tPaciente "<<nombre<<" agregado"<<endl;
+    	cout << "\n\t"; system("Pause");
     }
 }
 
@@ -340,7 +340,6 @@ void mostrarPaciente (listaP cabeza)
         
     }
 }
-
 
 void eliminarPaciente(listaP &cabeza,int ced)
 {
@@ -525,10 +524,6 @@ void modificarPaciente(listaP &cabeza,int cedula)
     }	
 }
 
-
-
-
-
 //DOCTORES
 void mostrarDoctor (listaD cabeza)
 {
@@ -561,47 +556,6 @@ void mostrarDoctor (listaD cabeza)
     }
     		cout<<"\n\tDoctores en total: "<<contador<<"\n\n";
 }
-
-/*void buscarSintomaPaciente (listaP cabeza, int ced )
-{
-	int contador = 0;
-    listaP auxP;
-    int sintoma2;
-    
-    if (cabeza==NULL)
-    cout<<"\n\tNo hay pacientes"<<endl;
-    else
-    {
-	aux=cabeza;
-	do
-	{
-	auxP=auxP->siguiente;	
-	}	
-	
-	while(auxP->cedula!=ced)
-	auxP->sintoma==sintoma2;
-	}
-}*/ 
-/*
-void mostrarDoctorEspecialidad(listaD cabeza)
-{
-
-    if (cabeza==NULL)
-    cout<<"\n\tLista vacia"<<endl;
-    else
-    {
-		
-        aux=cabeza;
-        do
-        {      
-			aux=aux->siguiente;
-
-        } 
-        while (aux->especialidad!=sintoma2);
-        
-    }
-    		
-}*/ 
 
 void eliminarDoctor(listaD &cabeza,int codigo = 0)
 {
@@ -659,14 +613,14 @@ int buscarSintoma(listaP cabeza, int cedulaRet)
         {
         	if(aux->cedula==cedulaRet && aux==cabeza)
 				{
-		    		cout<<"\tSintoma 1: "<<aux->sintomas<<endl;
+		    		//cout<<"\tSintoma 1: "<<aux->sintomas<<endl;
 					sintomaRetorno=aux->sintomas;
 				}
 			else
 			{
 				if(aux->cedula==cedulaRet && aux!=cabeza)
 				{
-					cout<<"\tSintoma 2: "<<aux->sintomas<<endl;	
+					//cout<<"\tSintoma 2: "<<aux->sintomas<<endl;	
 					sintomaRetorno=aux->sintomas;
 
 				}
@@ -897,7 +851,6 @@ void modificarEstado(lista &cabeza,int codigoUsuario)
     }	
 }
 
-
 void desactivar (lista &cabeza,int codigoUsuario)
 {
     lista aux;
@@ -938,11 +891,9 @@ void desactivar (lista &cabeza,int codigoUsuario)
 		}
 		while(aux!=cabeza);
 }
-}
-	
+}	
 
-
-	void printStrongNess(string& input,int& check)
+void printStrongNess(string& input,int& check)
 {
     int n = input.length();
     check = 0;
@@ -993,15 +944,12 @@ void mostrarCitas (listaC cabeza)
         do
         {
         	cout<<"\n\t------------------------"<<endl;
-            cout<<"\tID : "<<aux->idCita<<endl;
-            cout<<"\tSintomas: "<<aux->sintomas1<<endl;
-            cout<<"\tAnno: "<<aux->anno<<endl;
-            cout<<"\tMes: "<<aux->mes<<endl;
-            cout<<"\tDia: "<<aux->dia<<endl;
-            cout<<"\tHora: "<<aux->hora<<endl;
-            cout<<"\tMinuto: "<<aux->minutos<<endl;
-            cout<<"\tDoc: "<<aux->doc1<<endl;
-            cout<<"\tPac: "<<aux->pac1<<endl;
+            cout<<"\tID de la cita : "<<aux->idCita<<endl;
+            cout<<"\tSintomas del paciente: "<<aux->sintomas1<<endl;
+            cout<<"\tFecha: "<<aux->dia<<"/"<<aux->mes<<"/"<<aux->anno<<endl;
+            cout<<"\tHora: "<<aux->hora<<":"<<aux->minutos<<endl;
+            cout<<"\tID Doctor: "<<aux->doc1<<endl;
+            cout<<"\tDNI Paciente: "<<aux->pac1<<endl;
             cout<<"\t------------------------\n"<<endl;
         	contador=contador+1;
 			aux=aux->siguiente;
@@ -1063,57 +1011,75 @@ void asignarCita(listaC &cabeza,int idCita, int sintomas1,int anno,int mes,int d
     }
 }
 
-void mostrarEspecialidadDoctor (listaD cabeza)
-{
-	int idEspecialidad;
-	listaP cabezaP;
-    listaD aux;
-    int cedulaRet = 1;
-    
-    if (cabeza==NULL){
-    cout<<"\n\tLista vacia"<<endl;
-	} else if (aux-> especialidad == "Cirujano"){
-    idEspecialidad = 1;
-    }else if (aux -> especialidad == "Psicologo"){
-    idEspecialidad = 2;
-	}else if (aux -> especialidad == "Dentista"){
-    idEspecialidad = 3;
-	}else if (aux -> especialidad == "Dermatologo"){
-	idEspecialidad = 4;
-	} else {
-		cout<<"Invalido"<<endl;	
-	}
-	
-    {
-        aux=cabeza;
-        do 
-        {
-        		
-        
-        	cout<<"\n\t------------------------"<<endl;
-            cout<<"\tNombre: "<<aux->nombre<<endl;
-            cout<<"\tPrimer apellido: "<<aux->apellido1<<endl;
-            cout<<"\tSegundo apellido: "<<aux->apellido2<<endl;
-            cout<<"\tEspecialidad: "<<aux->especialidad<<endl;
-            cout<<"\tCodigo: "<<aux->codigoD<<endl;
-            cout<<"\t------------------------\n"<<endl;
-			aux=aux->siguiente;
 
+int buscarEspecialidad(listaD cabeza, int var1)
+{
+
+	listaP auxP;
+	listaD auxD;
+	int especialidadReturn;
+   
+   	int derm=1;
+   	int dent=2;
+   	int cir=3;
+   	int psico=4;
+   
+    if (cabeza==NULL)
+    cout<<"\n\tLista vacia"<<endl;
+    else
+    {
+        auxD=cabeza;
+        do
+        {
+        	auxD=auxD->siguiente;
+			if("Dermatologo"==auxD->especialidad && derm==var1){
+			
+			cout<<"\n\tID de doctor: "<<auxD->codigoD<<"\n";
+			cout<<"\tNombre: "<<auxD->nombre<<"\n";
+			cout<<"\tEspecialidad: "<<auxD->especialidad<<"\n\n";
+
+			//cout<<"\treturn "<<especialidadReturn;
+			especialidadReturn=1;
+			
+			} else if ("Dentista"==auxD->especialidad && dent==var1){
+				
+			cout<<"\n\tID de doctor: "<<auxD->codigoD<<"\n\n";
+			cout<<"\tNombre: "<<auxD->nombre<<"\n";
+			cout<<"\tEspecialidad: "<<auxD->especialidad<<"\n\n";
+			especialidadReturn=2;
+			//cout<<"return "<<especialidadReturn;
+				
+			}else if ("Cirujano"==auxD->especialidad && cir==var1){
+				
+			cout<<"\n\tID de doctor: "<<auxD->codigoD<<"\n";
+			cout<<"\tNombre: "<<auxD->nombre<<"\n";
+			cout<<"\tEspecialidad: "<<auxD->especialidad<<"\n\n";
+			//cout<<"return "<<especialidadReturn;
+			especialidadReturn=3;
+
+				
+			}else if ("Psicologo"==auxD->especialidad && psico==var1){
+				
+			cout<<"\n\tID de doctor: "<<auxD->codigoD<<"\n";
+			cout<<"\tNombre: "<<auxD->nombre<<"\n";
+			cout<<"\tEspecialidad: "<<auxD->especialidad<<"\n\n";
+			//cout<<"\treturn "<<especialidadReturn;
+			especialidadReturn=4;
+				
+			}
+					
         } 
-        while (idEspecialidad == buscarSintoma(cabezaP,cedulaRet));
-        
+        while (auxD!=cabeza);
+        return especialidadReturn;
     }
 }
-
-
-
 
 	
     int main(){
     	
 	int sintomas1,mes,anno,dia,hora,minutos,doc,pac,idCita;
 	int inputsintomas1,inputmes,inputanno,inputdia,inputhora,inputminutos,inputdoc,inputpac,inputidCita,inputCedula;
-	int sintomas;
+	int sintomas, especialidadPara;
 		
     int opcion = 0,edad = 0,codigo = 0,codigoUsuario = 0;
     string nombre,apellido1,apellido2,cuenta,contrasenna;
@@ -1121,6 +1087,7 @@ void mostrarEspecialidadDoctor (listaD cabeza)
     string especialidad;
     int cedula = 0,telefono = 0;
     int codigoD = 0;
+    int var1;
     char tipo;
     string estado;
     string activacion;
@@ -1157,10 +1124,11 @@ void mostrarEspecialidadDoctor (listaD cabeza)
         cout << "\t4: Eliminar paciente\n\n" <<endl;
         
         cout << "\t5: Asignar una cita medica" <<endl;
-        cout << "\t6: Modificar una cita medica TEST" <<endl;
-        cout << "\t7: Mostrar citas medica\n\n" <<endl;
+        cout << "\t6: Modificar una cita medica" <<endl;
+        cout << "\t7: Mostrar citas medicas" <<endl;
+        cout << "\t8: Eliminar cita medica\n\n"<<endl;
         
-        cout << "\t8: Salir\n\n" <<endl;
+        cout << "\t9: Salir\n\n" <<endl;
         
         cout << "\tLa opcion que desea es: ";
         cin >> opcion;
@@ -1177,7 +1145,7 @@ void mostrarEspecialidadDoctor (listaD cabeza)
                     cin >> cedula;
                     cout << "\tDigite el telefono  del paciente: ";
                     cin >> telefono;
-                    cout << "\tDigite el sintoma del paciente:\n \t1)Fractura\n \t2)Depresion\n \t3)Carie\n \t4)Sarpullido\n ";
+                    cout << "\tDigite el sintoma del paciente:\n\n \t\t[1]Gangrena \n \t\t[2]Carie\n \t\t[3]Fractura\n \t\t[4]Depresion\n ";
                     cin >> sintomas;
                     cout << "\tDigite la fecha de ingreso  del paciente: ";
                     cin >> fechaIngreso;
@@ -1185,29 +1153,28 @@ void mostrarEspecialidadDoctor (listaD cabeza)
                     
                     ingresarFinalPaciente(ListP,nombre,apellido1,apellido2,cedula,telefono,sintomas,fechaIngreso);
                             
-            break;
+            	break;
             case 2: 
                   mostrarPaciente(ListP);
                   cout << "\n\t"; system("Pause");
-            break;
+            	break;
             case 3: 
                      
                     cout<<"\tDigite el numero de cedula del paciente que desea modificar: ";
                     cin>>cedula;
                     modificarPaciente(ListP,cedula);
                     cout << "\n\t"; system("Pause");
-            break;
+            	break;
             case 4:
                     cout<<"\tDigite la cedula del paciente que desea eliminar: ";
                     cin>>cedula;
 					eliminarPaciente(ListP,cedula);
 					mostrarPaciente(ListP);
 					cout << "\n\t"; system("Pause");
-            break;
+            	break;
             case 5:
-                    //cout << "Digite cual es el sintoma: " <<endl;
-                    //cin >> inputsintomas1;
-                   mostrarPaciente(ListP);
+
+                    mostrarPaciente(ListP);
                     cout << "\tDigite el cedula de paciente: ";
                     cin >> inputpac;
 					cout << "\n\tDigite el dia que desea su cita: ";
@@ -1221,33 +1188,33 @@ void mostrarEspecialidadDoctor (listaD cabeza)
                     cout << "\tDigite en que minuto desea su cita: ";
                     cin >> inputminutos;
                     cout << "\n\t"; system("Pause");
-                     mostrarEspecialidadDoctor(ListD);
-                    //mostrarDoctor(ListD);
-                    cout << "\tDigite el id del doctor: " <<endl;
+
+                    var1 = buscarSintoma(ListP,inputpac);
+                    buscarEspecialidad(ListD,var1);
+                    cout << "\tDigite el id del doctor: ";
                     cin >> inputdoc;
                    
                     cout << "\n\t"; system("Pause");
-                    
-                 
                     
                     idCita=rand()%100;
                     
                     asignarCita(ListC,idCita,sintomas,inputanno,inputmes,inputdia,inputhora,inputminutos,inputdoc,inputpac);
                     cout << "\n\t"; system("Pause");
-            break;
+            	break;
             case 6:
-                    cout<<"por hacer"<<endl;
-                    buscarSintoma(ListP,inputpac);
-                    //mostrarEspecialidadDoctor(ListD);
-            break;
+
+            	break;
             case 7:
                 	mostrarCitas(ListC);
 					cout << "\n\t"; system("Pause");	
-            break;
+            	break;
+            case 8:
+
+            	break;
 
         }
     }
-    while(opcion!=8);
+    while(opcion!=9);
 
 /*
     do
