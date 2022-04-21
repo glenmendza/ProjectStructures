@@ -1063,6 +1063,51 @@ void asignarCita(listaC &cabeza,int idCita, int sintomas1,int anno,int mes,int d
     }
 }
 
+void mostrarEspecialidadDoctor (listaD cabeza)
+{
+	int idEspecialidad;
+	listaP cabezaP;
+    listaD aux;
+    int cedulaRet = 1;
+    
+    if (cabeza==NULL){
+    cout<<"\n\tLista vacia"<<endl;
+	} else if (aux-> especialidad == "Cirujano"){
+    idEspecialidad = 1;
+    }else if (aux -> especialidad == "Psicologo"){
+    idEspecialidad = 2;
+	}else if (aux -> especialidad == "Dentista"){
+    idEspecialidad = 3;
+	}else if (aux -> especialidad == "Dermatologo"){
+	idEspecialidad = 4;
+	} else {
+		cout<<"Invalido"<<endl;	
+	}
+	
+    {
+        aux=cabeza;
+        do 
+        {
+        		
+        
+        	cout<<"\n\t------------------------"<<endl;
+            cout<<"\tNombre: "<<aux->nombre<<endl;
+            cout<<"\tPrimer apellido: "<<aux->apellido1<<endl;
+            cout<<"\tSegundo apellido: "<<aux->apellido2<<endl;
+            cout<<"\tEspecialidad: "<<aux->especialidad<<endl;
+            cout<<"\tCodigo: "<<aux->codigoD<<endl;
+            cout<<"\t------------------------\n"<<endl;
+			aux=aux->siguiente;
+
+        } 
+        while (idEspecialidad == buscarSintoma(cabezaP,cedulaRet));
+        
+    }
+}
+
+
+
+
 	
     int main(){
     	
@@ -1176,7 +1221,8 @@ void asignarCita(listaC &cabeza,int idCita, int sintomas1,int anno,int mes,int d
                     cout << "\tDigite en que minuto desea su cita: ";
                     cin >> inputminutos;
                     cout << "\n\t"; system("Pause");
-                    mostrarDoctor(ListD);
+                     mostrarEspecialidadDoctor(ListD);
+                    //mostrarDoctor(ListD);
                     cout << "\tDigite el id del doctor: " <<endl;
                     cin >> inputdoc;
                    
@@ -1191,7 +1237,8 @@ void asignarCita(listaC &cabeza,int idCita, int sintomas1,int anno,int mes,int d
             break;
             case 6:
                     cout<<"por hacer"<<endl;
-                    //buscarSintoma(ListP,inputpac);
+                    buscarSintoma(ListP,inputpac);
+                    //mostrarEspecialidadDoctor(ListD);
             break;
             case 7:
                 	mostrarCitas(ListC);
