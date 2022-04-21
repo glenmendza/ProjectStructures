@@ -448,7 +448,7 @@ void modificarPaciente(listaP &cabeza,int cedula)
             cin>>apellido2n;
             cout<<"\tNuevo numero de telefono: "<<endl;
             cin>>telefonon;
-            cout<<"\tNuevos sintomas: "<<endl;
+            cout<<"\tNuevos sintomas:\n\n \t\t[1]Gangrena \n \t\t[2]Carie\n \t\t[3]Fractura\n \t\t[4]Depresion\n "<<endl;
             cin>>sintomasn;
             cout<<"\tNueva fecha de ingreso: "<<endl;
             cin>>fechan;
@@ -638,7 +638,7 @@ int buscarSintoma(listaP cabeza, int cedulaRet)
 	listaP aux;
 	
 	if (cabeza==NULL)
-    cout<<"\n\tLista vacia"<<endl;
+    cout<<"\n\tLista vacia sintoma"<<endl;
     else
 	{
         aux=cabeza;
@@ -1346,29 +1346,87 @@ aux=aux->siguiente;
 cout<<"La cantidad de doctores es: "<<contador<<endl;
 }
 
-	
-    int main(){
-    	
-	int sintomas1,mes,anno,dia,hora,minutos,doc,pac,idCita;
-	int inputsintomas1,inputmes,inputanno,inputdia,inputhora,inputminutos,inputdoc,inputpac,inputidCita,inputCedula;
-	int sintomas, especialidadPara;
-		
-    int opcion = 0,edad = 0,codigo = 0,codigoUsuario = 0;
-    string nombre,apellido1,apellido2,cuenta,contrasenna;
-    string fechaIngreso,inputEspecialidad;
-    string especialidad;
-    int cedula = 0,telefono = 0;
-    int codigoD = 0;
-    int var1;
-    char tipo;
-    string estado;
-    string activacion;
-    lista List=NULL;
+void contarPacientesEspecialidad(listaC cabeza){
+	 listaC aux;
+int contadorDermatologo=0;
+int contadorDentista=0;
+int contadorCirujano=0;
+int contadorPsicologo=0;
+    if (cabeza==NULL)
+    cout<<"\n\tLista vacia"<<endl;
+    else
+    {
+        aux=cabeza;
+        do
+        {
+if(aux->sintomas1==1)
+{
+        	contadorDermatologo=contadorDermatologo+1;
+           
+} else if(aux->sintomas1==2){
+
+contadorDentista=contadorDentista+1;
+}else if(aux->sintomas1==3){
+	contadorCirujano=contadorCirujano+1;
+}else if(aux->sintomas1==4){
+
+contadorPsicologo=contadorPsicologo+1;
+}else{
+	cout<<"Invalido"<<endl;
+}
+aux=aux->siguiente;
+        } 
+        while (aux!=cabeza);
+        
+    }
+cout<<"Cantidad de pacientes atendidos por Dermatologos: "<<contadorDermatologo<<endl;
+cout<<"Cantidad de pacientes atendidos por Dentistas: "<<contadorDentista<<endl;
+cout<<"Cantidad de pacientes atendidos por Cirujanos: "<<contadorCirujano<<endl;
+cout<<"Cantidad de pacientes atendidos por Psicologos: "<<contadorPsicologo<<endl;
+}
+
+/*
+void CantidadPacientesDoctor(listaC cabeza)
+{
+	 listaC aux;
+int contadorDermatologo=0;
+
+    if (cabeza==NULL)
+    cout<<"\n\tLista vacia"<<endl;
+    else
+    {
+        aux=cabeza;
+        do
+        {
+if(aux->sintomas1==1)
+{
+        	contadorDermatologo=contadorDermatologo+1;
+           
+} }else{
+	cout<<"Invalido"<<endl;
+}
+aux=aux->siguiente;
+        } 
+        while (aux!=cabeza);
+        
+    }
+cout<<"Cantidad de pacientes atendidos por Dermatologos: "<<contadorDermatologo<<endl;
+cout<<"Cantidad de pacientes atendidos por Dentistas: "<<contadorDentista<<endl;
+cout<<"Cantidad de pacientes atendidos por Cirujanos: "<<contadorCirujano<<endl;
+cout<<"Cantidad de pacientes atendidos por Psicologos: "<<contadorPsicologo<<endl;
+}
+*/
+
+void menuEstandar()
+{
+	string nombre,apellido1,apellido2,fechaIngreso,inputEspecialidad;
+	int opcion,cedula,telefono,sintomas,inputpac,inputdia,inputmes,inputanno,inputhora,inputminutos,var1,inputdoc,idCita,mes,dia;
+	lista List=NULL;
     listaP ListP=NULL;
     listaD ListD=NULL;
     listaC ListC=NULL;
     
-    ingresarFinalUsuariosSinNotf(List,"Valeria","Soto","Corrales",703210563,'A',"Vales","Vale123!","inactivo");
+       ingresarFinalUsuariosSinNotf(List,"Valeria","Soto","Corrales",703210563,'A',"Vales","Vale123!","inactivo");
     ingresarFinalUsuariosSinNotf(List,"Diego","Colorado","Murillo",708910891,'E',"diegoma","Diego123!","activo");
     ingresarFinalPacienteSinNotf(ListP,"Carolina","Chinchilla","Solis",702360763,87671212,1,"02/06/2022");
     ingresarFinalPacienteSinNotf(ListP,"Maria","Bonilla","Campos",701580214,61237812,2,"10/05/2022");
@@ -1378,13 +1436,8 @@ cout<<"La cantidad de doctores es: "<<contador<<endl;
      ingresarFinalDoctorSinNoft(ListD,"Jason","Ortega","Herrera","Cirujano",5);
     ingresarFinalDoctorSinNoft(ListD,"Jose","Quiros","Meneses","Psicologo",4);
     asignarCitaSinNotf(ListC,1,1,2020,12,10,20,30,1,1);
-    
-    int c = 0;
-	//string input = " aB4$cfgty";
-    //printStrongNess(input);
-    //return 0;
-
-    do
+	
+	do
     {
         
 		cout<<"\n\t>>>>>>>>>>>>>>>>>>>>>>>>>>";
@@ -1401,10 +1454,11 @@ cout<<"La cantidad de doctores es: "<<contador<<endl;
         cout << "\t7: Mostrar citas medicas" <<endl;
         cout << "\t8: Mostrar citas medicas del mes seleccionado" <<endl;
          cout << "\t9: Mostrar citas medicas del dia y mes seleccionado" <<endl;
-        cout << "\t10: Eliminar cita medica\n\n"<<endl;
-        cout<<"\t11: Prueba"<<endl;
+        cout << "\t10: Eliminar cita medica"<<endl;
+        cout << "\t11: Cantidad de pacientes por especialidad"<<endl;
+        cout<<"\t12: Cantidad de doctores por especialidad"<<endl;
         
-        cout << "\t12: Salir\n\n" <<endl;
+        cout << "\t13: Salir\n\n" <<endl;
         
         cout << "\tLa opcion que desea es: ";
         cin >> opcion;
@@ -1445,7 +1499,7 @@ cout<<"La cantidad de doctores es: "<<contador<<endl;
                     cout<<"\tDigite la cedula del paciente que desea eliminar: ";
                     cin>>cedula;
 					eliminarPaciente(ListP,cedula);
-					mostrarPaciente(ListP);
+					
 					cout << "\n\t"; system("Pause");
             	break;
             case 5:
@@ -1478,7 +1532,7 @@ cout<<"La cantidad de doctores es: "<<contador<<endl;
                     cout << "\n\t"; system("Pause");
             	break;
             case 6:
-                    cout<<"Digite el id de la cita que desea modificar"<<endl;
+                    cout<<"\tDigite el id de la cita que desea modificar"<<endl;
                     cin>>idCita;
 					modificarCita(ListC,idCita);
             	break;
@@ -1487,22 +1541,22 @@ cout<<"La cantidad de doctores es: "<<contador<<endl;
 					cout << "\n\t"; system("Pause");	
             	break;
             case 8:
-			cout<<"Digite el mes que desea ver"<<endl;
+			cout<<"\tDigite el mes que desea ver"<<endl;
 			cin>>mes;
 			mostrarCitasMes(ListC,mes);
 			cout << "\n\t"; system("Pause");
             	break;
             	
             	case 9:
-					cout<<"Digite el mes que desea ver"<<endl;
+					cout<<"\tDigite el mes que desea ver"<<endl;
 					cin>>mes;
-					cout<<"Digite el dia que desea ver"<<endl;
+					cout<<"\tDigite el dia que desea ver"<<endl;
 					cin>>dia;
 					contarPacientesDiaMes(ListC,mes,dia);
 						cout << "\n\t"; system("Pause");
             	break;
             case 10:
-					cout<<"Digite el id de la cita que desea eliminar"<<endl;
+					cout<<"\n\tDigite el id de la cita que desea eliminar"<<endl;
 				cin>>idCita;
                 eliminarCita(ListC,idCita);
                 cout << "\n\t"; system("Pause");
@@ -1510,16 +1564,47 @@ cout<<"La cantidad de doctores es: "<<contador<<endl;
 				break;
 				
 			case 11:
-				cout<<"Digite la especialidad que desea ver:\n \t1)Dermatologo\n \t2)Dentista\n \t3)Cirujano\n \t4)Psicologo"<<endl;
+				contarPacientesEspecialidad(ListC);
+				cout << "\n\t"; system("Pause");
+				break;
+            case 12:
+				cout<<"\n\tDigite la especialidad que desea ver:\n \t1)Dermatologo\n \t2)Dentista\n \t3)Cirujano\n \t4)Psicologo"<<endl;
 				cin>>inputEspecialidad;
 				contarDoctoresEspecialidad(ListD,inputEspecialidad);
-
+				cout << "\n\t"; system("Pause");
+				break;
         }
     }
-    while(opcion!=12);
+    while(opcion!=13);
+    
+   cout<<"Fin del sistema"<<endl;
+}
 
-/*
-    do
+void menuAdmin()
+{
+
+string nombre, apellido1,apellido2,cuenta,contrasenna,activacion,especialidad,fechaIngreso;
+int codigo,codigoUsuario,codigoD,cedula,telefono,sintomas,c = 0;
+char tipo;
+
+ lista List=NULL;
+    listaP ListP=NULL;
+    listaD ListD=NULL;
+    listaC ListC=NULL;
+    
+     ingresarFinalUsuariosSinNotf(List,"Valeria","Soto","Corrales",703210563,'A',"Vales","Vale123!","inactivo");
+    ingresarFinalUsuariosSinNotf(List,"Diego","Colorado","Murillo",708910891,'E',"diegoma","Diego123!","activo");
+    ingresarFinalPacienteSinNotf(ListP,"Carolina","Chinchilla","Solis",702360763,87671212,1,"02/06/2022");
+    ingresarFinalPacienteSinNotf(ListP,"Maria","Bonilla","Campos",701580214,61237812,2,"10/05/2022");
+    ingresarFinalDoctorSinNoft(ListD,"Juan","Guadamuz","Fernandez","Dermatologo",1);
+	ingresarFinalDoctorSinNoft(ListD,"Luis","Monge","Abarca","Dentista",2);
+    ingresarFinalDoctorSinNoft(ListD,"Rodrigo","Guevara","Hidalgo","Cirujano",3);
+     ingresarFinalDoctorSinNoft(ListD,"Jason","Ortega","Herrera","Cirujano",5);
+    ingresarFinalDoctorSinNoft(ListD,"Jose","Quiros","Meneses","Psicologo",4);
+    asignarCitaSinNotf(ListC,1,1,2020,12,10,20,30,1,1);
+{
+	int opcion;
+	 do
     {
         
 		cout<<"\n\t>>>>>>>>>>>>>>>>>>>>>>>>>>";
@@ -1655,7 +1740,83 @@ cout<<"La cantidad de doctores es: "<<contador<<endl;
         }
     }
     while(opcion!=12);
-    */
-    
     cout << "Fin del sistema" <<endl;
+}
+}
+
+
+
+	
+    int main(){
+    /*	
+	int sintomas1,mes,anno,dia,hora,minutos,doc,pac,idCita;
+	int inputsintomas1,inputmes,inputanno,inputdia,inputhora,inputminutos,inputdoc,inputpac,inputidCita,inputCedula;
+	int sintomas, especialidadPara;
+		
+    int opcion = 0,edad = 0,codigo = 0,codigoUsuario = 0;
+    string nombre,apellido1,apellido2,cuenta,contrasenna;
+    string fechaIngreso,inputEspecialidad;
+    string especialidad;
+    int cedula = 0,telefono = 0;
+    int codigoD = 0;
+    int var1;
+    char tipo;
+    string estado;
+    string activacion;
+    */
+    lista List=NULL;
+    listaP ListP=NULL;
+    listaD ListD=NULL;
+    listaC ListC=NULL;
+   int opcion;
+    
+    ingresarFinalUsuariosSinNotf(List,"Valeria","Soto","Corrales",703210563,'A',"Vales","Vale123!","inactivo");
+    ingresarFinalUsuariosSinNotf(List,"Diego","Colorado","Murillo",708910891,'E',"diegoma","Diego123!","activo");
+    ingresarFinalPacienteSinNotf(ListP,"Carolina","Chinchilla","Solis",702360763,87671212,1,"02/06/2022");
+    ingresarFinalPacienteSinNotf(ListP,"Maria","Bonilla","Campos",701580214,61237812,2,"10/05/2022");
+    ingresarFinalDoctorSinNoft(ListD,"Juan","Guadamuz","Fernandez","Dermatologo",1);
+	ingresarFinalDoctorSinNoft(ListD,"Luis","Monge","Abarca","Dentista",2);
+    ingresarFinalDoctorSinNoft(ListD,"Rodrigo","Guevara","Hidalgo","Cirujano",3);
+     ingresarFinalDoctorSinNoft(ListD,"Jason","Ortega","Herrera","Cirujano",5);
+    ingresarFinalDoctorSinNoft(ListD,"Jose","Quiros","Meneses","Psicologo",4);
+    asignarCitaSinNotf(ListC,1,1,2020,12,10,20,30,1,1);
+
+    
+  	cout<<"\n\t>>>>>>>>>>>>>>>>>>>>>>>>>>";
+		cout<<"\n\tLogin\t";
+		cout<<"\n\t<<<<<<<<<<<<<<<<<<<<<<<<<<\n\n";
+		
+        cout << "\t1: Ingresar como Administrador" <<endl;
+        cout << "\t2: Ingresar como usuario Estandar" <<endl;
+        
+    
+        cout << "\tLa opcion que desea es: ";
+        
+        do
+    {
+        cin >> opcion;
+        switch (opcion)
+        {
+			case 1:
+				menuAdmin();
+				break;
+			
+			case 2:
+				menuEstandar();	
+				break;
+			}
+		}
+		while(opcion!=3);
+	cout << "Fin del sistema" <<endl;	
+	
+  
+    
+	//string input = " aB4$cfgty";
+    //printStrongNess(input);
+    //return 0;
+
+    
+
+
+   
     }
