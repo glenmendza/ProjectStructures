@@ -68,6 +68,22 @@ struct nodoCita{
 };
 typedef struct nodoCita *listaC;
 
+struct nodoExpediente {
+	string nombre;
+	string apellido1;
+    string apellido2;
+    int anno;
+    int mes;
+    int dia;
+    int codigoD;
+    int sintomas;
+    string medicamentos;
+    string examen;
+    nodoExpediente *siguiente;
+    nodoExpediente *anterior;
+};
+typedef struct nodoExpediente *listaE;
+
 nodoUsuario *crearNodo(string nom,string ap1,string ap2,int cod,char tipoU, string cuen,string con, string es)
 {
     nodoUsuario *aux = new (struct nodoUsuario);
@@ -129,6 +145,23 @@ nodoCita *crearNodo(int id,int sin1,int an,int ms,int d,int hor,int min,int doc,
     aux->doc=NULL;
     aux->pac=NULL;
     return aux;
+}
+
+nodoExpediente *crearExpediente(string nom,string ap1,string ap2,int an,int ms,int di,int codD,int sint,string med,string ex)
+{
+	nodoExpediente *aux = new(struct nodoExpediente);
+	aux->nombre=nom;
+	aux->apellido1=ap1;
+	aux->apellido2=ap2;
+	aux->anno=an;
+	aux->mes=ms;
+	aux->dia=di;
+	aux->codigoD=codD;
+	aux->sintomas=sint;
+	aux->medicamentos=med;
+	aux->examen=ex;
+	aux->siguiente=NULL;
+	aux->anterior=NULL;	
 }
 
 //lista circular doble
@@ -1011,6 +1044,163 @@ void asignarCita(listaC &cabeza,int idCita, int sintomas1,int anno,int mes,int d
     }
 }
 
+void eliminarCita(listaC &cabeza,int idCit)
+{
+        listaC aux;
+ 
+        if (cabeza == NULL) {
+            cout << "\n\tLista vacia" << endl;
+        } else {
+            aux = cabeza;
+            do {
+                if (aux -> idCita == idCit && aux == cabeza) {
+                    cabeza = aux -> siguiente;
+                    aux -> siguiente -> anterior = aux -> anterior;
+                    aux -> anterior -> siguiente = aux -> siguiente;
+                    aux -> anterior = NULL;
+                    aux -> siguiente = NULL;
+                    delete(aux);
+                    cout << "\n\tCita " << idCit << " eliminada" << endl;
+                    aux = cabeza;
+                } else {
+                    if (aux -> idCita == idCit && aux != cabeza) {
+                        aux -> anterior -> siguiente = aux -> siguiente;
+                        aux -> siguiente -> anterior = aux -> anterior;
+                        aux -> siguiente = NULL;
+                        aux -> anterior = NULL;
+                        delete(aux);
+                        cout << "\n\tCita " << idCit << " eliminada" << endl;
+                        aux = cabeza;
+                    }
+ 
+                }
+                aux = aux -> siguiente;
+            } while (aux != cabeza);
+        }
+}
+
+void modificarCita(listaC &cabeza,int idCit)
+{	
+	int opcion,annoN,mesN,diaN,horaN,minutosN;
+	listaC aux;
+	
+    if (cabeza==NULL)
+    cout<<"\n\tLista vacia"<<endl;
+    else
+    {
+        aux=cabeza;
+        do
+        {
+        	if(aux->idCita==idCit && aux==cabeza)
+			{
+		    cout<<"\tAño actual: "<<aux->anno<<endl;
+            cout<<"\tMes actual: "<<aux->mes<<endl;
+            cout<<"\tDia actual: "<<aux->dia<<endl;
+            cout<<"\tHora actual: "<<aux->hora<<endl;
+            cout<<"\tMinutos actuales: "<<aux->minutos<<endl;
+            
+            cout<<" "<<endl;
+            cout<<"------------------------"<<endl;
+            cout<<"\tNuevo año: "<<endl;
+            cin>>annoN;         
+            cout<<"\tNuevo mes: "<<endl;
+            cin>>mesN;
+            cout<<"\tNuevo dia: "<<endl;
+            cin>>diaN;
+            cout<<"\tNueva hora: "<<endl;
+            cin>>horaN;
+            cout<<"------------------------"<<endl;
+            cout<<" "<<endl;
+             
+            cout<<"\n\tDesea guardar los cambios?\n 1)SI \n 2)NO"<<endl;
+            cin>>opcion;
+             
+            if(opcion==1)  {
+				   		
+			aux->anno=annoN;
+            aux->mes=mesN;
+            aux->dia=diaN;
+            aux->hora=horaN;
+            
+            
+            cout<<" "<<endl;
+            cout<<"------------------------"<<endl;
+            cout<<"\tNuevo año modificado: "<<annoN<<endl;
+            cout<<"\tNuevo mes modificado: "<<mesN<<endl;
+            cout<<"\tNuevo día modificado: "<<diaN<<endl;
+            cout<<"\tNueva hora modificada: "<<horaN<<endl;
+            cout<<"------------------------"<<endl;
+            cout<<" "<<endl;
+		    }
+		    else if(opcion==2)
+		    {
+		    	cout<<"\n\tLos datos no fueron guardados"<<endl;
+			}
+			else{
+			cout<<"\n\tOpcion invalida"<<endl;	
+			}		
+			}
+			else
+			{
+				if(aux->idCita==idCit && aux!=cabeza)
+				{
+		 cout<<"\tAño actual: "<<aux->anno<<endl;
+            cout<<"\tMes actual: "<<aux->mes<<endl;
+            cout<<"\tDia actual: "<<aux->dia<<endl;
+            cout<<"\tHora actual: "<<aux->hora<<endl;
+            cout<<"\tMinutos actuales: "<<aux->minutos<<endl;
+            
+            cout<<" "<<endl;
+            cout<<"------------------------"<<endl;
+            cout<<"\tNuevo año: "<<endl;
+            cin>>annoN;         
+            cout<<"\tNuevo mes: "<<endl;
+            cin>>mesN;
+            cout<<"\tNuevo dia: "<<endl;
+            cin>>diaN;
+            cout<<"\tNueva hora: "<<endl;
+            cin>>horaN;
+            cout<<"------------------------"<<endl;
+            cout<<" "<<endl;
+             
+            cout<<"\n\tDesea guardar los cambios?\n 1)SI \n 2)NO"<<endl;
+            cin>>opcion;
+             
+            if(opcion==1)  {
+				   		
+			aux->anno=annoN;
+            aux->mes=mesN;
+            aux->dia=diaN;
+            aux->hora=horaN;
+            
+            
+            cout<<" "<<endl;
+            cout<<"------------------------"<<endl;
+            cout<<"\tNuevo año modificado: "<<annoN<<endl;
+            cout<<"\tNuevo mes modificado: "<<mesN<<endl;
+            cout<<"\tNuevo día modificado: "<<diaN<<endl;
+            cout<<"\tNueva hora modificada: "<<horaN<<endl;
+            cout<<"------------------------"<<endl;
+            cout<<" "<<endl;
+		    }
+		    else if(opcion==2)
+		    {
+		    	cout<<"\n\tLos datos no fueron guardados"<<endl;
+			}
+			else{
+			cout<<"\n\tOpcion invalida"<<endl;	
+			}		         
+				}
+
+			}            
+			aux=aux->siguiente;
+        }
+		while(aux!=cabeza); 
+    }
+}
+
+
+
 
 int buscarEspecialidad(listaD cabeza, int var1)
 {
@@ -1074,6 +1264,88 @@ int buscarEspecialidad(listaD cabeza, int var1)
     }
 }
 
+void mostrarCitasMes (listaC cabeza,int ms)
+{
+    listaC aux;
+    if (cabeza==NULL)
+    cout<<"\n\tLista vacia"<<endl;
+    else
+    {
+        aux=cabeza;
+        do
+        {
+if(aux->mes==ms)
+{
+        	cout<<"\t\n------------------------"<<endl;
+            cout<<"\tID de la Cita: "<<aux->idCita<<endl;
+            cout<<"\tSintomas del paciente: "<<aux->sintomas1<<endl;
+            cout<<"\tAño: "<<aux->anno<<endl;
+            cout<<"\tMes: "<<aux->mes<<endl;
+            cout<<"\tDia: "<<aux->dia<<endl;
+            cout<<"\tHora: "<<aux->hora<<endl;
+            cout<<"\tMinutos: "<<aux->minutos<<endl;
+            cout<<"\tDoctor: "<<aux->doc1<<endl;
+            cout<<"\tPaciente: "<<aux->pac1<<endl;
+            cout<<"\t------------------------\n\n"<<endl;
+           
+}
+aux=aux->siguiente;
+        } 
+        while (aux!=cabeza);
+        
+    }
+}
+
+//Cantidad atendida de pacientes segun dia y mes
+void contarPacientesDiaMes(listaC cabeza,int ms,int di)
+{
+  listaC aux;
+int contador=0;
+    if (cabeza==NULL)
+    cout<<"\n\tLista vacia"<<endl;
+    else
+    {
+        aux=cabeza;
+        do
+        {
+if(ms==aux->mes && di==aux->dia)
+{
+        	contador=contador+1;
+           
+}
+aux=aux->siguiente;
+        } 
+        while (aux!=cabeza);
+        
+    }
+cout<<"Cantidad de citas: "<<contador<<endl;
+}
+
+void contarDoctoresEspecialidad(listaD cabeza,string espec)
+//le pide input en el main. Le da las 4 opciones de especialidades
+{
+  listaD aux;
+int contador=0;
+    if (cabeza==NULL)
+    cout<<"\n\tLista vacia"<<endl;
+    else
+    {
+        aux=cabeza;
+        do
+        {
+if(espec==aux->especialidad)
+{
+        	contador=contador+1;
+           
+}
+aux=aux->siguiente;
+        } 
+        while (aux!=cabeza);
+        
+    }
+cout<<"La cantidad de doctores es: "<<contador<<endl;
+}
+
 	
     int main(){
     	
@@ -1083,7 +1355,7 @@ int buscarEspecialidad(listaD cabeza, int var1)
 		
     int opcion = 0,edad = 0,codigo = 0,codigoUsuario = 0;
     string nombre,apellido1,apellido2,cuenta,contrasenna;
-    string fechaIngreso;
+    string fechaIngreso,inputEspecialidad;
     string especialidad;
     int cedula = 0,telefono = 0;
     int codigoD = 0;
@@ -1103,6 +1375,7 @@ int buscarEspecialidad(listaD cabeza, int var1)
     ingresarFinalDoctorSinNoft(ListD,"Juan","Guadamuz","Fernandez","Dermatologo",1);
 	ingresarFinalDoctorSinNoft(ListD,"Luis","Monge","Abarca","Dentista",2);
     ingresarFinalDoctorSinNoft(ListD,"Rodrigo","Guevara","Hidalgo","Cirujano",3);
+     ingresarFinalDoctorSinNoft(ListD,"Jason","Ortega","Herrera","Cirujano",5);
     ingresarFinalDoctorSinNoft(ListD,"Jose","Quiros","Meneses","Psicologo",4);
     asignarCitaSinNotf(ListC,1,1,2020,12,10,20,30,1,1);
     
@@ -1126,9 +1399,12 @@ int buscarEspecialidad(listaD cabeza, int var1)
         cout << "\t5: Asignar una cita medica" <<endl;
         cout << "\t6: Modificar una cita medica" <<endl;
         cout << "\t7: Mostrar citas medicas" <<endl;
-        cout << "\t8: Eliminar cita medica\n\n"<<endl;
+        cout << "\t8: Mostrar citas medicas del mes seleccionado" <<endl;
+         cout << "\t9: Mostrar citas medicas del dia y mes seleccionado" <<endl;
+        cout << "\t10: Eliminar cita medica\n\n"<<endl;
+        cout<<"\t11: Prueba"<<endl;
         
-        cout << "\t9: Salir\n\n" <<endl;
+        cout << "\t12: Salir\n\n" <<endl;
         
         cout << "\tLa opcion que desea es: ";
         cin >> opcion;
@@ -1202,19 +1478,45 @@ int buscarEspecialidad(listaD cabeza, int var1)
                     cout << "\n\t"; system("Pause");
             	break;
             case 6:
-
+                    cout<<"Digite el id de la cita que desea modificar"<<endl;
+                    cin>>idCita;
+					modificarCita(ListC,idCita);
             	break;
             case 7:
                 	mostrarCitas(ListC);
 					cout << "\n\t"; system("Pause");	
             	break;
             case 8:
-
+			cout<<"Digite el mes que desea ver"<<endl;
+			cin>>mes;
+			mostrarCitasMes(ListC,mes);
+			cout << "\n\t"; system("Pause");
             	break;
+            	
+            	case 9:
+					cout<<"Digite el mes que desea ver"<<endl;
+					cin>>mes;
+					cout<<"Digite el dia que desea ver"<<endl;
+					cin>>dia;
+					contarPacientesDiaMes(ListC,mes,dia);
+						cout << "\n\t"; system("Pause");
+            	break;
+            case 10:
+					cout<<"Digite el id de la cita que desea eliminar"<<endl;
+				cin>>idCita;
+                eliminarCita(ListC,idCita);
+                cout << "\n\t"; system("Pause");
+				
+				break;
+				
+			case 11:
+				cout<<"Digite la especialidad que desea ver:\n \t1)Dermatologo\n \t2)Dentista\n \t3)Cirujano\n \t4)Psicologo"<<endl;
+				cin>>inputEspecialidad;
+				contarDoctoresEspecialidad(ListD,inputEspecialidad);
 
         }
     }
-    while(opcion!=9);
+    while(opcion!=12);
 
 /*
     do
