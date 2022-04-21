@@ -116,6 +116,7 @@ nodoDoctor *crearNodo(string nom,string ap1,string ap2,string espec,int codD)
 nodoCita *crearNodo(int id,int sin1,int an,int ms,int d,int hor,int min,int doc,int pac)
 {
     nodoCita *aux = new (struct nodoCita);
+   //aux->cedulaPacienteCita=ced;
     aux->idCita=id;
     aux->sintomas1=sin1;
     aux->anno=an;
@@ -544,7 +545,7 @@ void mostrarDoctor (listaD cabeza)
         {
         	cout<<"\n\t------------------------"<<endl;
             cout<<"\tNombre: "<<aux->nombre<<endl;
-            cout<<"\tPrimer apelldio: "<<aux->apellido1<<endl;
+            cout<<"\tPrimer apellido: "<<aux->apellido1<<endl;
             cout<<"\tSegundo apellido: "<<aux->apellido2<<endl;
             cout<<"\tEspecialidad: "<<aux->especialidad<<endl;
             cout<<"\tCodigo: "<<aux->codigoD<<endl;
@@ -557,6 +558,47 @@ void mostrarDoctor (listaD cabeza)
         
     }
     		cout<<"\n\tDoctores en total: "<<contador<<"\n\n";
+}
+
+void buscarSintomaPaciente (listaP cabeza, int ced )
+{
+	int contador = 0;
+    listaP auxP;
+    int sintoma2;
+    
+    if (cabeza==NULL)
+    cout<<"\n\tNo hay pacientes"<<endl;
+    else
+    {
+	aux=cabeza;
+	do
+	{
+	auxP=auxP->siguiente;	
+	}	
+	
+	while(auxP->cedula!=ced)
+	auxP->sintoma==sintoma2;
+	}
+} 
+
+void mostrarDoctorEspecialidad(listaD cabeza)
+{
+
+    if (cabeza==NULL)
+    cout<<"\n\tLista vacia"<<endl;
+    else
+    {
+		
+        aux=cabeza;
+        do
+        {      
+			aux=aux->siguiente;
+
+        } 
+        while (aux->especialidad!=sintoma2);
+        
+    }
+    		
 }
 
 void eliminarDoctor(listaD &cabeza,int codigo = 0)
@@ -990,7 +1032,7 @@ void asignarCita(listaC &cabeza,int idCita, int sintomas1,int anno,int mes,int d
     int main(){
     	
 	int sintomas1,mes,anno,dia,hora,minutos,doc,pac,idCita;
-	int inputsintomas1,inputmes,inputanno,inputdia,inputhora,inputminutos,inputdoc,inputpac,inputidCita;
+	int inputsintomas1,inputmes,inputanno,inputdia,inputhora,inputminutos,inputdoc,inputpac,inputidCita,inputCedula;
 	int sintomas;
 		
     int opcion = 0,edad = 0,codigo = 0,codigoUsuario = 0;
@@ -1055,7 +1097,7 @@ void asignarCita(listaC &cabeza,int idCita, int sintomas1,int anno,int mes,int d
                     cin >> cedula;
                     cout << "\tDigite el telefono  del paciente: ";
                     cin >> telefono;
-                    cout << "\tDigite los sintomas del paciente: ";
+                    cout << "\tDigite el sintoma del paciente:\n \t1)Fractura\n \t2)Depresion\n \t3)Carie\n \t4)Sarpullido\n ";
                     cin >> sintomas;
                     cout << "\tDigite la fecha de ingreso  del paciente: ";
                     cin >> fechaIngreso;
@@ -1085,7 +1127,10 @@ void asignarCita(listaC &cabeza,int idCita, int sintomas1,int anno,int mes,int d
             case 5:
                     //cout << "Digite cual es el sintoma: " <<endl;
                     //cin >> inputsintomas1;
-                    cout << "\n\tDigite el dia que desea su cita: ";
+                   mostrarPaciente(ListP);
+                    cout << "\tDigite el cedula de paciente: ";
+                    cin >> inputpac;
+					cout << "\n\tDigite el dia que desea su cita: ";
                     cin >> inputdia;
                     cout << "\tDigite el mes que desea su cita: ";
                     cin >> inputmes;
@@ -1099,14 +1144,14 @@ void asignarCita(listaC &cabeza,int idCita, int sintomas1,int anno,int mes,int d
                     mostrarDoctor(ListD);
                     cout << "\tDigite el id del doctor: " <<endl;
                     cin >> inputdoc;
+                   
                     cout << "\n\t"; system("Pause");
-                    mostrarPaciente(ListP);
-                    cout << "\tDigite el id de paciente: " <<endl;
-                    cin >> inputpac;
+                    
+                 
                     
                     idCita=rand()%100;
                     
-                    asignarCita(ListC,idCita,inputsintomas1,inputanno,inputmes,inputdia,inputhora,inputminutos,inputdoc,inputpac);
+                    asignarCita(ListC,idCita,sintomas,inputanno,inputmes,inputdia,inputhora,inputminutos,inputdoc,inputpac);
                     cout << "\n\t"; system("Pause");
             break;
             case 6:
