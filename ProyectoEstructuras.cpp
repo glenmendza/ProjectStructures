@@ -758,7 +758,7 @@ void modificarDoctor(listaD &cabeza,int codigo)
         {
         	if(aux->codigoD==codigo && aux==cabeza)
 			{
-		    cout<<"\tNombre Actual: "<<aux->nombre<<endl;
+		    cout<<"\n\tNombre Actual: "<<aux->nombre<<endl;
             cout<<"\tPrimer apellido actual: "<<aux->apellido1<<endl;
             cout<<"\tSegundo apellido actual: "<<aux->apellido2<<endl;
             cout<<"\tEspecialidad actual: "<<aux->especialidad<<endl;
