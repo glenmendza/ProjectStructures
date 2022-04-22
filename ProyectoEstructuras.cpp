@@ -1457,7 +1457,7 @@ void contarPacientesEspecialidad(listaC cabeza){
         while (aux!=cabeza);
         
     }
-cout<<"\tCantidad de pacientes atendidos por Dermatologos: "<<contadorDermatologo<<endl;
+cout<<"\n\tCantidad de pacientes atendidos por Dermatologos: "<<contadorDermatologo<<endl;
 cout<<"\tCantidad de pacientes atendidos por Dentistas: "<<contadorDentista<<endl;
 cout<<"\tCantidad de pacientes atendidos por Cirujanos: "<<contadorCirujano<<endl;
 cout<<"\tCantidad de pacientes atendidos por Psicologos: "<<contadorPsicologo<<endl;
@@ -1543,16 +1543,16 @@ void menuEstandar()
         cout << "\t1 : Ingresar un nuevo paciente" <<endl;
         cout << "\t2 : Mostrar pacientes" <<endl;
         cout << "\t3 : Modificar paciente" <<endl;
-        cout << "\t4 : Eliminar paciente\n\n" <<endl;
+        cout << "\t4 : Eliminar paciente\n" <<endl;
         
         cout << "\t5 : Asignar una cita medica" <<endl;
         cout << "\t6 : Modificar una cita medica" <<endl;
-        cout << "\t7 : Mostrar citas medicas" <<endl;
+        cout << "\t7 : Mostrar citas medicas\n" <<endl;
         cout << "\t8 : Ingresar expediente" <<endl;
-        cout << "\t9 : Mostrar expedientes de pacientes" <<endl;
+        cout << "\t9 : Mostrar expedientes de pacientes\n" <<endl;
         cout << "\t10: Mostrar citas medicas del mes seleccionado" <<endl;
         cout << "\t11: Mostrar citas medicas del dia y mes seleccionado" <<endl;
-        cout << "\t12: Eliminar cita medica"<<endl;
+        cout << "\t12: Eliminar cita medica\n"<<endl;
         cout << "\t13: Cantidad de pacientes por especialidad"<<endl;
         cout << "\t14: Cantidad de doctores por especialidad\n\n"<<endl;
 
@@ -1604,13 +1604,13 @@ void menuEstandar()
             case 5:
 
                     mostrarPaciente(ListP);
-                    cout << "\tDigite el cedula de paciente	: ";
+                    cout << "\tDigite el cedula de paciente		: ";
                     cin >> inputpac;
-					cout << "\n\tDigite el dia que desea su cita	: ";
+					cout << "\n\tDigite el dia que desea su cita		: ";
                     cin >> inputdia;
-                    cout << "\tDigite el mes que desea su cita	: ";
+                    cout << "\tDigite el mes que desea su cita		: ";
                     cin >> inputmes;
-                    cout << "\tDigite el año que desea su cita	: ";
+                    cout << "\tDigite el año que desea su cita		: ";
                     cin >> inputanno;
                     cout << "\tDigite la hora que desea su cita	: ";
                     cin >> inputhora;
@@ -1631,7 +1631,7 @@ void menuEstandar()
                     cout << "\n\t"; system("Pause");
             	break;
             case 6:
-                    cout<<"\tDigite el id de la cita que desea modificar"<<endl;
+                    cout<<"\tDigite el id de la cita que desea modificar: ";
                     cin>>idCita;
 					modificarCita(ListC,idCita);
             	break;
@@ -1682,15 +1682,15 @@ void menuEstandar()
             	break;
             	
             	case 11:
-					cout<<"\tDigite el mes que desea ver"<<endl;
+					cout<<"\tDigite el mes que desea ver: ";
 					cin>>mes;
-					cout<<"\tDigite el dia que desea ver"<<endl;
+					cout<<"\tDigite el dia que desea ver: ";
 					cin>>dia;
 					contarPacientesDiaMes(ListC,mes,dia);
 					cout << "\n\t"; system("Pause");
             	break;
             case 12:
-					cout<<"\n\tDigite el id de la cita que desea eliminar"<<endl;
+					cout<<"\n\tDigite el id de la cita que desea eliminar: ";
 				cin>>idCita;
                 eliminarCita(ListC,idCita);
                 cout << "\n\t"; system("Pause");
@@ -1702,8 +1702,8 @@ void menuEstandar()
 				cout << "\n\t"; system("Pause");
 				break;
             case 14:
-            	cout <<"\n\t\t Dermatologo \n\t\tDentista\n\t\tCirujano\n\t\tPsicologo\n";
-				cout<<"\n\Escriba la especialidad que desea ver		:";
+            	cout <<"\n\t\tDermatologo \n\t\tDentista\n\t\tCirujano\n\t\tPsicologo\n";
+				cout<<"\n\tEscriba la especialidad que desea ver: ";
 				cin>>inputEspecialidad;
 				contarDoctoresEspecialidad(ListD,inputEspecialidad);
 				cout << "\n\t"; system("Pause");
